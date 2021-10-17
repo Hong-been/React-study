@@ -1,12 +1,110 @@
 *{
+  box-sizing: border-box;
   margin:0; padding:0;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+input{
+  outline-style: none;
 }
 button{
-  border-style: unset;
-  outline-style: unset;
+  border-style: none;
+  outline-style: none;
   cursor:pointer;
-  background-color: unset;
+  background-color: transparent;
 }
 ul,li{
   list-style: none;
+}
+/* header */
+.header{
+  padding: 40px 0;
+  background-color: rgb(241, 188, 123);
+  color:white;
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.header-count{
+  display: inline-block;
+  background-color: rgb(48, 143, 48);
+  border-radius: 50%;
+  margin-left: 0.3em;
+  font-size: 2rem;
+  width:2.5rem;
+  height:2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+}
+
+/* habit */
+.habit{
+  display: block;
+  font-size: 1.6rem;
+  margin:0.1em;
+  padding:0.4em;
+  background-color: rgb(253, 243, 224);
+  border-radius: 0.2em;
+}
+.habit-name{
+  display: inline-block;
+  color:rgb(56, 56, 56);
+}
+.habit-count{
+  display: inline-block;
+  font-size: 1.8rem;
+  margin: 0 0.6em 0 0.3em;
+  background-color: rgb(121, 202, 121);
+  border-radius: 50%;
+  color:white;
+  width:2.5rem;
+  height:2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+}
+.habit-button{
+  font-size: 1.9rem;
+  margin-right:0.3em;
+}
+.habit-button:hover{
+  opacity: 0.7;
+}
+.habit-increase,
+.habit-decrease{
+  color:orange;
+}
+.habit-delete{
+  color:rgb(211, 90, 34);
+}
+
+/* habits */
+.habits{
+  display: block;
+  width:fit-content;
+  margin: auto;
+}
+/* add-form */
+.add-form{
+  display: block;
+  width:fit-content;
+  margin:1.5rem auto;
+}
+.add-input{
+  font-size:1.3rem;
+  width:20rem;
+  height:2rem;
+  border: 1px solid wheat;
+  border-radius: 5px;
+  padding: 1rem;
+  outline-style: none;
+}
+.add-button{
+  background-color: orange;
+  width: 5rem;
+  height:2.2rem;
+  border-radius: 5px;
+  margin-left: 1rem;
+  color:white;
+  font-size:1.3rem;
+  font-weight: 600;
 }

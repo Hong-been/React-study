@@ -3,17 +3,20 @@ import "./habit.css";
 
 class Habit extends Component {
   handleIncrement = ()=> {
-    this.props.onIncrement(this.props.habit);
+		this.props.onIncrement(this.props.habit);
   };
+
   handleDecrement = ()=>{
-    this.props.onDecrement(this.props.habit);
+		this.props.onDecrement(this.props.habit);
   };
-  handleDelete = ()=>{
-    this.props.onDelete(this.props.habit);
-  }
+  
+	handleDelete = ()=>{
+		this.props.onDelete(this.props.habit);
+  };
 
 	render() {
 		const { name, count } = this.props.habit;
+
 		return (
 			<li className="habit">
 				<span className="habit-name">{name}</span>
@@ -34,7 +37,7 @@ class Habit extends Component {
 					className="habit-button habit-delete"
 					onClick={this.handleDelete}
 				>
-					<i class="far fa-trash-alt"></i>
+					<i className="far fa-trash-alt"></i>
 				</button>
 			</li>
 		);
