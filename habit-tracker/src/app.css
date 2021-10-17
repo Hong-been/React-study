@@ -47,7 +47,8 @@ ul,li{
   border-radius: 0.2em;
 }
 .habit-name{
-  display: inline-block;
+  width : 20rem;
+  padding: 0 1rem;
   color:rgb(56, 56, 56);
 }
 .habit-count{

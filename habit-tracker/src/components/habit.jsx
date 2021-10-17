@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import "./habit.css";
 
-class Habit extends Component {
+class Habit extends PureComponent {
   handleIncrement = ()=> {
 		this.props.onIncrement(this.props.habit);
   };
