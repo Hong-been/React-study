@@ -6,6 +6,17 @@
 input{
   outline-style: none;
 }
+.contents{
+  display: flex;
+  background-color: #181818;
+}
+.detail{
+  flex: 1 1 90%;
+}
+.list{
+  flex: 1 1 10%;
+}
+
 .App {
   text-align: center;
 }
