@@ -6,24 +6,29 @@
   margin-left: 2rem;
 }
 .video{
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+}
+.tags{
+  font-size: 0.8rem;
+  padding-bottom: 10px;
+  color: #3ea6ff;
 }
 .title{
   font-size:1.3rem;
+  font-weight: 600;
   padding-bottom: 1rem;
   border-bottom: 1px solid rgb(78, 78, 78);
 }
 .channel{
   font-size: 1rem;
+  font-weight: 600;
   margin: 1rem 0;
 }
 .description{
   overflow: auto;
   white-space: pre-wrap;
-  font-size: 0.8rem;
-  margin-bottom: 1rem;
+  font-size: 1rem;
+  padding-bottom: 1rem;
   margin-right: 1rem;
-}
-.tags{
-  color: blue;
+  border-bottom: 1px solid rgb(78, 78, 78);
 }

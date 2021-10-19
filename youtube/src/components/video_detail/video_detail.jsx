@@ -18,10 +18,10 @@ const VideoDetail = ({ video, video: { snippet } }) => {
 				allowFullScreen
         autoPlay="1"
 			></iframe>
+      <div className={styles.tags}>{tags && tags.map((tag) => `#${tag} `)}</div>
 			<div className={styles.title}>{title}</div>
 			<div className={styles.channel}>{channelTitle}</div>
 			<pre className={styles.description}>{description}</pre>
-			<div className={styles.tags}>{tags && tags.map((tag) => `#${tag} `)}</div>
 		</article>
 	);
 };
