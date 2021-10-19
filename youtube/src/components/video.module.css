@@ -1,0 +1,30 @@
+.video{
+  background-color: #181818;
+  display: flex;
+  flex-direction: column;
+  border-radius: 2px;
+  width: min-content;
+  height: max-content;
+  margin: 0 3px;
+}
+.video:hover{
+  cursor: pointer;
+}
+.thumbnail{
+  margin: 10px;
+}
+.info{
+  display: flex;
+  flex-direction: column;
+  color:white;
+  margin: 5px 10px;
+  height: 100px;
+}
+.title{
+  font-size: 1rem;
+  font-weight: 500;
+}
+.channel{
+  margin: 5px 0;
+  font-size: 0.7rem;
+}

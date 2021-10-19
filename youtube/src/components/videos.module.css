@@ -1,0 +1,6 @@
+.videos{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  background-color: #181818;
+}
