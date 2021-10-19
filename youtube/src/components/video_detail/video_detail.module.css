@@ -1,24 +1,28 @@
 .detail{
-  padding: 0 1rem;
   background-color: #181818;
   color:white;
   display: flex;
   flex-direction: column;
+  margin-left: 2rem;
 }
 .video{
   margin-bottom: 1.5rem;
 }
 .title{
-  font-size:1.5rem;
-  margin-bottom: 0.5rem;
+  font-size:1.3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgb(78, 78, 78);
 }
 .channel{
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  margin: 1rem 0;
 }
 .description{
-  font-size: 1rem;
+  overflow: auto;
+  white-space: pre-wrap;
+  font-size: 0.8rem;
   margin-bottom: 1rem;
+  margin-right: 1rem;
 }
 .tags{
   color: blue;

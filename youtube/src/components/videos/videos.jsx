@@ -6,7 +6,7 @@ const Videos = ({videos, onVideoClick, display}) => (
 		<>
 			<ul className={styles.videos}>
 				{videos.map((video) => (
-					<Video video={video} onVideoClick={onVideoClick} display={display}/>
+        <Video video={video} onVideoClick={onVideoClick} display={display}/>
 				))}
 			</ul>
 		</>

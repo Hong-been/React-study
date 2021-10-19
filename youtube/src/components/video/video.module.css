@@ -16,8 +16,12 @@
   width:220px;
   height: 200px;
 }
+.video.list .title{
+  font-size: 0.8rem;
+  font-weight: 400;
+}
 .thumbnail{
-  margin: 10px 5px;
+  margin: 5px;
 }
 .info{
   display: flex;

@@ -22,7 +22,6 @@ function App() {
 
 
   const handleSubmit = (keyword) => {
-    setSelectedVideo(null);
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'
@@ -31,7 +30,9 @@ function App() {
     fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${keyword}&key=AIzaSyBUzWqXCNnWzk3LYPhmwXUMMEuTac0evrA `, requestOptions)
       .then(response => response.json())
       .then(result => setVideos(result.items))
+      .then(()=>setSelectedVideo(null))
       .catch(error => console.log('error', error));
+
   };
   
   const selectVideo = (video) => {
@@ -40,12 +41,12 @@ function App() {
 
 	return (
 		<>
-      <SearchBar onSubmit={handleSubmit}/>
+      <SearchBar onSubmit={handleSubmit} onVideoClick={selectVideo}/>
       <main className={styles.contents}>
         {selectedVideo && (
           <section className={styles.detail}>
-          <VideoDetail video={selectedVideo}/>
-        </section>
+            <VideoDetail video={selectedVideo}/>
+          </section>
         )}
         <section className={styles.list}>
           <Videos videos={videos} onVideoClick={selectVideo} display={selectedVideo? 'list' : 'grid'}/>

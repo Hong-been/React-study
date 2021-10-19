@@ -3,7 +3,6 @@ import React from "react";
 
 const SearchBar = (props) => {
 	const inputRef = React.createRef();
-	const formRef = React.createRef();
 
 	const onSubmit = (event) => {
 		event.preventDefault();
@@ -11,9 +10,13 @@ const SearchBar = (props) => {
 		keyword && props.onSubmit(keyword);
 	}
 
+	const onClick = () => {
+		props.onVideoClick(null);
+	}
+
 	return (
 		<nav className={styles.nav}>
-			<button type="button" className={styles.home}>
+			<button type="button" className={styles.home} onClick={onClick}>
 				<img
 					src="images/logo.png"
 					className={styles.logo}
@@ -21,7 +24,7 @@ const SearchBar = (props) => {
 				></img>
 				<span className={styles.title}>Youtube</span>
 			</button>
-			<form className={styles.form} ref={formRef} onSubmit={onSubmit}>
+			<form className={styles.form} onSubmit={onSubmit}>
 				<input
 					ref={inputRef}
 					type="text"
