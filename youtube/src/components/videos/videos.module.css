@@ -1,7 +1,7 @@
 .videos{
   display: flex;
   flex-wrap: wrap;
-  background-color: #181818;
+  background-color: var(--background);
 }
 .videos.grid{
   flex-direction: row;

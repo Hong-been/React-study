@@ -1,6 +1,6 @@
 .contents{
   display: flex;
-  background-color: #181818;
+  background-color: var(--background);
 }
 .detail{
   flex: 1 1 70%;

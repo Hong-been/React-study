@@ -1,6 +1,11 @@
+:root{
+  --tag:#3ea6ff;
+  --divider: rgb(78, 78, 78);
+}
+
 .detail{
-  background-color: #181818;
-  color:white;
+  background-color: var(--background);
+  color:var(--font-main);
   display: flex;
   flex-direction: column;
   margin: 0 2rem 1rem 2rem;
@@ -11,13 +16,13 @@
 .tags{
   font-size: 0.8rem;
   padding-bottom: 10px;
-  color: #3ea6ff;
+  color: var(--tag);
 }
 .title{
   font-size:1.3rem;
   font-weight: 600;
   padding-bottom: 1rem;
-  border-bottom: 1px solid rgb(78, 78, 78);
+  border-bottom: 1px solid var(--divider);
 }
 .channel{
   font-size: 1rem;
@@ -30,7 +35,7 @@
   font-size: 1rem;
   padding-bottom: 1rem;
   margin-right: 1rem;
-  border-bottom: 1px solid rgb(78, 78, 78);
+  border-bottom: 1px solid var(--divider);
 }
 
 @media screen and (max-width: 70rem){
