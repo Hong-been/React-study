@@ -10,8 +10,8 @@ const Video = ({video, video:{snippet}, onVideoClick, display}) => {
     <li className={`${styles.video} ${displayType}`} onClick={()=>onVideoClick(video)}>
       <img className={styles.thumbnail} src={url} alt="thumbnail"></img>
       <div className={styles.info}>
-        <span className={styles.title}>{title}</span>
-        <span className={styles.channel}>{channelTitle}</span>
+        <p className={styles.title}>{title}</p>
+        <p className={styles.channel}>{channelTitle}</p>
       </div>
     </li>
   );

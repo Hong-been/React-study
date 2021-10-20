@@ -15,7 +15,7 @@ const SearchBar = (props) => {
 	}
 
 	return (
-		<nav className={styles.nav}>
+		<header className={styles.nav}>
 			<button type="button" className={styles.home} onClick={onClick}>
 				<img
 					src="images/logo.png"
@@ -35,7 +35,7 @@ const SearchBar = (props) => {
 					<img src="images/search.png" alt="search icon"></img>
 				</button>
 			</form>
-		</nav>
+		</header>
 	);
 };
 

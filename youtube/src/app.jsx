@@ -20,7 +20,6 @@ function App() {
       .catch(error => console.log('error', error));
 	}, []);
 
-
   const handleSubmit = (keyword) => {
     const requestOptions = {
       method: 'GET',
@@ -32,7 +31,6 @@ function App() {
       .then(result => setVideos(result.items))
       .then(()=>setSelectedVideo(null))
       .catch(error => console.log('error', error));
-
   };
   
   const selectVideo = (video) => {

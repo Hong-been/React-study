@@ -4,3 +4,9 @@
   padding: 0 15px;
   background-color: #181818;
 }
+.videos.grid{
+  flex-direction: row;
+}
+.videos.list{
+  flex-direction: column;
+}
