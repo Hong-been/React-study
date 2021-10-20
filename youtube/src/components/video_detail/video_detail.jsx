@@ -10,6 +10,7 @@ const VideoDetail = ({ video, video: { snippet } }) => {
 			<iframe
         className={styles.video}
 				id="ytplayer"
+				title="youtube video player"
 				type="text/html"
 				width="100%"
 				height="405"

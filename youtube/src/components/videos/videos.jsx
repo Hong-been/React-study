@@ -9,9 +9,7 @@ const Videos = ({videos, onVideoClick, display}) => {
 		<>
 			<ul className={`${styles.videos} ${displayType}`}>
 				{videos.map((video) => {
-				const id = video.id.videoId ? video.id.videoId : video.id;
-        
-				return <Video key={id} video={video} onVideoClick={onVideoClick} display={display}/>
+				return <Video key={video.id} video={video} onVideoClick={onVideoClick} display={display}/>
 				})}
 			</ul>
 		</>
