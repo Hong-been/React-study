@@ -11,7 +11,7 @@ const SearchBar = (props) => {
 	}
 
 	const onClick = () => {
-		props.onVideoClick(null);
+		props.onHomeClick(null);
 	}
 
 	return (
