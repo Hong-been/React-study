@@ -13,4 +13,7 @@
   .contents{
     flex-direction: column;
   }
+  .list{
+    margin-left: 2rem;
+  }
 }

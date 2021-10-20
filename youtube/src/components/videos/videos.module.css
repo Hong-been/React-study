@@ -9,9 +9,8 @@
 }
 .videos.list{
   flex-direction: column;
-  margin-left: 1rem;
 }
-@media screen and (max-width: 30rem){
+@media screen and (max-width: 48rem){
   .videos.list,
   .videos.grid{
     justify-content: center;
