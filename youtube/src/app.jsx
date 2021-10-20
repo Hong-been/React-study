@@ -4,33 +4,21 @@ import Videos from "./components/videos/videos";
 import SearchBar from "./components/searchBar/searchBar";
 import VideoDetail from "./components/video_detail/video_detail";
 
-function App() {
+function App({ youtube }) {
 	const [videos, setVideos] = useState([]);
 	const [selectedVideo, setSelectedVideo] = useState(null);
 
 	useEffect(()=>{
-		const requestOptions = {
-      method: 'GET',
-      redirect: 'follow'
-    };
-    
-    fetch("https://youtube.googleapis.com/youtube/v3/videos?part=snippet&maxResults=25&chart=mostPopular&key=AIzaSyBUzWqXCNnWzk3LYPhmwXUMMEuTac0evrA ", requestOptions)
-      .then(response => response.json())
-      .then(result => setVideos(result.items))
-      .catch(error => console.log('error', error));
+    youtube
+      .mostPopular()//
+      .then(setVideos);
 	}, []);
 
-  const handleSubmit = (keyword) => {
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow'
-    };
-    
-    fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${keyword}&key=AIzaSyBUzWqXCNnWzk3LYPhmwXUMMEuTac0evrA `, requestOptions)
-      .then(response => response.json())
-      .then(result => setVideos(result.items))
-      .then(()=>setSelectedVideo(null))
-      .catch(error => console.log('error', error));
+  const search = (query) => {
+    youtube
+      .search(query)//
+      .then(setVideos)
+      .then(()=>setSelectedVideo(null));
   };
   
   const selectVideo = (video) => {
@@ -39,7 +27,7 @@ function App() {
 
 	return (
 		<>
-      <SearchBar onSubmit={handleSubmit} onVideoClick={selectVideo}/>
+      <SearchBar onSubmit={search} onVideoClick={selectVideo}/>
       <main className={styles.contents}>
         {selectedVideo && (
           <section className={styles.detail}>

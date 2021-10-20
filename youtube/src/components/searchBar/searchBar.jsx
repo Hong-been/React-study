@@ -6,8 +6,8 @@ const SearchBar = (props) => {
 
 	const onSubmit = (event) => {
 		event.preventDefault();
-		const keyword=inputRef.current.value;
-		keyword && props.onSubmit(keyword);
+		const query=inputRef.current.value;
+		query && props.onSubmit(query);
 	}
 
 	const onClick = () => {
