@@ -26,7 +26,7 @@ const SearchBar = memo(
 				button.classList.remove(styles.dark);
 				ball.childNodes[0].classList.remove("fa-moon");
 				ball.childNodes[0].classList.add("fa-sun");
-				ball.style.transform=`translateX(60%)`;
+				ball.style.transform=`translateX(70%)`;
 				button.style.background="#c6c6c4";
 				document.documentElement.style.setProperty('--background', '#ffffff');
 				document.documentElement.style.setProperty('--font-main', '#1a1a1a');
@@ -35,7 +35,7 @@ const SearchBar = memo(
 				button.classList.add(styles.dark);
 				ball.childNodes[0].classList.remove("fa-sun");
 				ball.childNodes[0].classList.add("fa-moon");
-				ball.style.transform=`translateX(-60%)`;
+				ball.style.transform=`translateX(-70%)`;
 				button.style.background="gray";
 				document.documentElement.style.setProperty('--background', '#181818');
 				document.documentElement.style.setProperty('--font-main', '#dfdfdf');

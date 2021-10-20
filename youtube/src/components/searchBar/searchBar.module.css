@@ -58,7 +58,7 @@
 
 .theme {
   will-change: translate;
-	flex-grow: 0.8;
+	flex: 0 0 100px;
 	font-size: 1.5rem;
 	border-radius: 30px;
   background-color: gray;
@@ -70,7 +70,7 @@
   display: inline-block;
   position: relative;
   transition: all 150ms ease-in;
-  transform: translateX(-60%);
+  transform: translateX(-70%);
   background-color: var(--background);
   color: var(--font-main);
   height:35px;

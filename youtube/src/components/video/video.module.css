@@ -46,3 +46,8 @@
   margin: 5px 0;
   font-size: 0.8rem;
 }
+@media screen and (max-width: 48rem){
+  .video.list .title{
+    font-size: 1rem;
+  }
+}
