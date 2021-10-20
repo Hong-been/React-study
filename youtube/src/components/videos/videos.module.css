@@ -1,12 +1,19 @@
 .videos{
   display: flex;
   flex-wrap: wrap;
-  padding: 0 15px;
   background-color: #181818;
 }
 .videos.grid{
   flex-direction: row;
+  margin-left: 1rem;
 }
 .videos.list{
   flex-direction: column;
+  margin-left: 1rem;
+}
+@media screen and (max-width: 30rem){
+  .videos.list,
+  .videos.grid{
+    justify-content: center;
+  }
 }

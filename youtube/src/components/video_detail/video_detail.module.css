@@ -3,7 +3,7 @@
   color:white;
   display: flex;
   flex-direction: column;
-  margin-left: 2rem;
+  margin: 0 2rem 1rem 2rem;
 }
 .video{
   margin-bottom: 1rem;
@@ -31,4 +31,15 @@
   padding-bottom: 1rem;
   margin-right: 1rem;
   border-bottom: 1px solid rgb(78, 78, 78);
+}
+
+@media screen and (max-width: 70rem){
+  .video{
+    height: 360px;
+  }
+}
+@media screen and (max-width: 30rem){
+  .video{
+    height: 220px;
+  }
 }
