@@ -20,27 +20,24 @@ const SearchBar = memo(
 
 		const toggleTheme = () => {
 			const button = themeBtnRef.current;
-			const ball = themeBallRef.current;
+			const darkBg='#181818';
+			const darkFont='#dfdfdf';
+			const brightBg='#ffffff';
+			const brightFont='#1a1a1a';
 
 			if (button.classList.contains(styles.dark)){
-				button.classList.remove(styles.dark);
-				ball.childNodes[0].classList.remove("fa-moon");
-				ball.childNodes[0].classList.add("fa-sun");
-				ball.style.transform=`translateX(70%)`;
-				button.style.background="#c6c6c4";
-				document.documentElement.style.setProperty('--background', '#ffffff');
-				document.documentElement.style.setProperty('--font-main', '#1a1a1a');
-				
+				changeColorProperty(brightBg, brightFont);		
 			}else{
-				button.classList.add(styles.dark);
-				ball.childNodes[0].classList.remove("fa-sun");
-				ball.childNodes[0].classList.add("fa-moon");
-				ball.style.transform=`translateX(-70%)`;
-				button.style.background="gray";
-				document.documentElement.style.setProperty('--background', '#181818');
-				document.documentElement.style.setProperty('--font-main', '#dfdfdf');
+				changeColorProperty(darkBg, darkFont);		
 			}
+			button.classList.toggle(styles.dark);
+			button.classList.toggle(styles.bright);
 		};
+
+		const changeColorProperty = (bg, font) => {
+			document.documentElement.style.setProperty('--background', bg);
+			document.documentElement.style.setProperty('--font-main', font);
+		}
 		
 		return (	
 			<header className={styles.nav}>
@@ -64,7 +61,7 @@ const SearchBar = memo(
 					</button>
 				</form>
 				<button ref={themeBtnRef} className={`${styles.theme} ${styles.dark}`} onClick={toggleTheme}>
-						<span ref={themeBallRef} className={styles.ball}>
+						<span className={styles.ball}>
 							<i className={"fas fa-moon"}></i>
 						</span>
 				</button>

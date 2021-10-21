@@ -11,6 +11,8 @@
 	display: flex;
 	align-items: center;
 }
+
+/* home button */
 .home {
 	cursor: pointer;
 	display: flex;
@@ -29,6 +31,8 @@
 	width: 38px;
 	padding-right: 5px;
 }
+
+/* search bar */
 .form {
 	flex-grow: 8;
 	display: flex;
@@ -56,25 +60,38 @@
 	height: 15px;
 }
 
+/* theme toggle button */
 .theme {
   will-change: translate;
-	flex: 0 0 100px;
-	font-size: 1.5rem;
+	flex: 0 0 70px;
 	border-radius: 30px;
-  background-color: gray;
   border: 1px solid white;
 	height:39px;
 	margin-right: 1rem;
+}
+.theme.dark{
+	background-color: rgb(13, 13, 41);
+}
+.theme.bright{
+	background-color: rgb(139, 169, 226);
 }
 .ball{
   display: inline-block;
   position: relative;
   transition: all 150ms ease-in;
-  transform: translateX(-70%);
-  background-color: var(--background);
-  color: var(--font-main);
-  height:35px;
-  width:35px;
-  line-height: 35px;
+  height:1.5rem;
+  width:1.5rem;
+  line-height: 1.5rem;
+	font-size: 1.4rem;
+	margin: 0 6px;
   border-radius: 50%;
+  color: white;
+}
+.theme.dark .ball{
+	transform: translateX(-50%);
+	background-color: transparent;
+}
+.theme.bright .ball{
+	transform: translateX(50%);
+	background-color: white;
 }
