@@ -1,0 +1,25 @@
+@value makerBlack from "/src/common/colors.css";
+@value makerWhite from "/src/common/colors.css";
+
+.header {
+	height: 80px;
+	display: flex;
+	align-items: center;
+	background-color: thistle;
+}
+.title {
+	color: makerWhite;
+	flex: 1 1 80%;
+	font-size: 2rem;
+	font-weight: 600;
+	text-align: center;
+}
+.logout {
+	margin-right: 1rem;
+	font-size: 0.8rem;
+	color: makerWhite;
+	background-color: violet;
+	padding: 0.5em 1em;
+	border: 2px solid makerWhite;
+	border-radius: 5px;
+}

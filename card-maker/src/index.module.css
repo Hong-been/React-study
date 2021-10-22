@@ -1,0 +1,17 @@
+@value makerBlack from "./common/colors.css";
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	color: makerBlack;
+	font-family: "Roboto", sans-serif;
+}
+button {
+	background-color: transparent;
+	border-style: none;
+	cursor: pointer;
+}
+li {
+	list-style: none;
+}
