@@ -13,6 +13,7 @@ const LoginPopUp = memo(({ authService }) => {
 			state: {
 				id: user.uid,
 				name: user.displayName,
+				email: user.email,
 				photo: user.photoURL || "/images/profile_placeholder.png",
 			},
 		});

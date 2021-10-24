@@ -4,7 +4,7 @@ import styles from "./app.module.css";
 import LoginPopUp from "./components/page/home/login_popup/login_popup";
 import DesignPage from "./components/page/design/design_page/design_page";
 
-function App({ authService }) {
+function App({ authService, realtimeService }) {
 	return (
 		<BrowserRouter>
 			<Switch>
@@ -12,7 +12,10 @@ function App({ authService }) {
 					<LoginPopUp authService={authService} />
 				</Route>
 				<Route path="/design" exact>
-					<DesignPage authService={authService} />
+					<DesignPage
+						authService={authService}
+						realtimeService={realtimeService}
+					/>
 				</Route>
 			</Switch>
 		</BrowserRouter>

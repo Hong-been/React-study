@@ -2,13 +2,10 @@ import React, { memo } from "react";
 import styles from "./maker_list.module.css";
 import Maker from "../maker/maker";
 
-const MakerList = memo((props) => {
+const MakerList = memo(({ state, realtimeService }) => {
 	return (
 		<ul className={styles.list}>
-			<Maker />
-			<Maker />
-			<Maker />
-			<Maker />
+			<Maker realtimeService={realtimeService} state={state} />
 		</ul>
 	);
 });
