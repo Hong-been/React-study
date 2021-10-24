@@ -1,6 +1,7 @@
 import {
 	getAuth,
 	signInWithPopup,
+	onAuthStateChanged,
 	GoogleAuthProvider,
 	GithubAuthProvider,
 	signOut,

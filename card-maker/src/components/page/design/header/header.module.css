@@ -7,7 +7,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: thistle;
+	background-color: skyblue;
 }
 .title {
 	color: makerWhite;
@@ -27,7 +27,7 @@
 .logout {
 	font-size: 0.8rem;
 	color: makerWhite;
-	background-color: violet;
+	background-color: blue;
 	padding: 0.5em 1em;
 	margin-left: 1em;
 	border: 2px solid makerWhite;
