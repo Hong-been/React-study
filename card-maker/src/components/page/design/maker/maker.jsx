@@ -6,9 +6,9 @@ import Preview from "../preview/preview";
 const Maker = memo((props) => {
 	return (
 		<li className={styles.maker}>
-			<InputBox />
-			<Preview />
 			<button className={styles.delete}>X</button>
+			<Preview />
+			<InputBox />
 		</li>
 	);
 });

@@ -9,7 +9,7 @@ const Preview = memo(() => {
 				<p className={styles.name}>이아영</p>
 				<p className={styles.company}>Uber</p>
 				<p className={styles.role}>Copywriter</p>
-				<p className={styles.statement}>기술 카피라이터</p>
+				<p className={styles.statement}>15년 경력 기술전문 카피라이터입니다.</p>
 				<p className={styles.number}>+82 0000 0000</p>
 				<p className={styles.email}>a-young@gmail.com</p>
 			</div>
