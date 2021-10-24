@@ -1,18 +1,17 @@
 .card {
 	display: flex;
-	flex-direction: column;
 	width: 100%;
-}
-.front,
-.back {
 	background-color: wheat;
 	border-radius: 10px;
 	width: 100%;
-	height: 188px;
+	height: 14rem;
 	margin-bottom: 5%;
-	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+.detail {
+	display: flex;
+	flex-direction: column;
 }
 .name {
 	font-size: 1.5rem;
@@ -25,8 +24,4 @@
 	width: 100px;
 	height: 100px;
 	border-radius: 50%;
-}
-.back {
-	background-color: cornflowerblue;
-	flex-direction: column;
 }

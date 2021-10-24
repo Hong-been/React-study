@@ -3,7 +3,7 @@ import styles from "./input_box.module.css";
 
 const InputBox = memo((props) => {
 	return (
-		<li className={styles.container}>
+		<section className={styles.container}>
 			<form className={styles.information}>
 				<input type="text" className={styles.name} placeholder="Name"></input>
 				<input
@@ -36,7 +36,7 @@ const InputBox = memo((props) => {
 			</form>
 			<button className={styles.upload}>Upload Image</button>
 			<button className={styles.delete}>Delete</button>
-		</li>
+		</section>
 	);
 });
 
