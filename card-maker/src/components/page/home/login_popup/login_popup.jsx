@@ -8,7 +8,6 @@ const LoginPopUp = memo(({ authService }) => {
 	const history = useHistory();
 
 	const goToDesign = (user) => {
-		console.log(user);
 		history.push({
 			pathname: "/design",
 			state: {

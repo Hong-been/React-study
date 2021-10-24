@@ -3,6 +3,7 @@ import {
 	signInWithPopup,
 	GoogleAuthProvider,
 	GithubAuthProvider,
+	signOut,
 } from "firebase/auth";
 
 class AuthService {
@@ -11,6 +12,7 @@ class AuthService {
 		this.googleProvider = new GoogleAuthProvider();
 		this.githubProvider = new GithubAuthProvider();
 	}
+
 	getProvider(providerName) {
 		switch (providerName) {
 			case "Google":
@@ -22,13 +24,20 @@ class AuthService {
 		}
 	}
 	logIn(providerName) {
-		// Google, Github
 		try {
 			const provider = this.getProvider(providerName);
 			return signInWithPopup(this.firebaseAuth, provider);
 		} catch (error) {
 			console.log(error);
 		}
+	}
+
+	logOut() {
+		// this.firebaseAuth.signOut();
+		signOut(getAuth());
+	}
+	isUserSignedIn() {
+		return !!this.firebaseAuth.currentUser;
 	}
 }
 export default AuthService;

@@ -8,11 +8,11 @@ function App({ authService }) {
 	return (
 		<BrowserRouter>
 			<Switch>
-				<Route path={["/", "/home"]} exact>
+				<Route path={["/", "/login"]} exact>
 					<LoginPopUp authService={authService} />
 				</Route>
 				<Route path="/design" exact>
-					<DesignPage />
+					<DesignPage authService={authService} />
 				</Route>
 			</Switch>
 		</BrowserRouter>

@@ -4,15 +4,12 @@ import Header from "../header/header";
 import MakerList from "../maker_list/maker_list";
 import { useLocation } from "react-router";
 
-const DesignPage = (props) => {
+const DesignPage = ({ authService }) => {
 	const { state } = useLocation();
 
-	const onLogoutClick = () => {
-		console.log("Click log-out button");
-	};
 	return (
 		<>
-			<Header onLogoutClick={onLogoutClick} state={state} />
+			<Header authService={authService} state={state} />
 			<button className={styles.add}>+</button>
 			<MakerList />
 		</>
