@@ -35,7 +35,6 @@ const InputBox = memo((props) => {
 				></input>
 			</form>
 			<button className={styles.upload}>Upload Image</button>
-			<button className={styles.delete}>Delete</button>
 		</section>
 	);
 });

@@ -5,4 +5,15 @@
 	margin: 0.5rem;
 	padding: 1rem 0.5rem;
 	border-radius: 15px;
+	border: 1px solid goldenrod;
+}
+.delete {
+	margin-left: 0.3em;
+	font-size: 1rem;
+	background-color: goldenrod;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
 }

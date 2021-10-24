@@ -6,6 +6,9 @@ const MakerList = memo((props) => {
 	return (
 		<ul className={styles.list}>
 			<Maker />
+			<Maker />
+			<Maker />
+			<Maker />
 		</ul>
 	);
 });

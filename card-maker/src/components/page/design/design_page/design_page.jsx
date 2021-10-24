@@ -13,6 +13,7 @@ const DesignPage = (props) => {
 	return (
 		<>
 			<Header onLogoutClick={onLogoutClick} state={state} />
+			<button className={styles.add}>+</button>
 			<MakerList />
 		</>
 	);

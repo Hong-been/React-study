@@ -1,6 +1,6 @@
 .card {
 	display: flex;
-	width: 100%;
+	flex: 0 1 40%;
 	background-color: wheat;
 	border-radius: 10px;
 	width: 100%;

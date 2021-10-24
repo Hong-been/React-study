@@ -8,6 +8,7 @@ const Maker = memo((props) => {
 		<li className={styles.maker}>
 			<InputBox />
 			<Preview />
+			<button className={styles.delete}>X</button>
 		</li>
 	);
 });
