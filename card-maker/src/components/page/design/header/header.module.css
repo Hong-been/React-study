@@ -3,23 +3,32 @@
 
 .header {
 	height: 80px;
+	padding: 0 2rem;
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	background-color: thistle;
 }
 .title {
 	color: makerWhite;
-	flex: 1 1 80%;
 	font-size: 2rem;
 	font-weight: 600;
-	text-align: center;
+}
+.user {
+	display: flex;
+	align-items: center;
+}
+.photo {
+	width: 25px;
+	height: 25px;
+	margin-right: 0.5em;
 }
 .logout {
-	margin-right: 1rem;
 	font-size: 0.8rem;
 	color: makerWhite;
 	background-color: violet;
 	padding: 0.5em 1em;
+	margin-left: 1em;
 	border: 2px solid makerWhite;
 	border-radius: 5px;
 }
