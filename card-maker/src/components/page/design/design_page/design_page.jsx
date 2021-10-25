@@ -16,7 +16,11 @@ const DesignPage = ({ authService, cardRepository }) => {
 	return (
 		<>
 			<Header authService={authService} state={state} />
-			<MakerList cardRepository={cardRepository} state={state} />
+			<MakerList
+				authService={authService}
+				cardRepository={cardRepository}
+				state={state}
+			/>
 		</>
 	);
 };

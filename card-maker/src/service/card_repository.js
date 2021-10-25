@@ -3,6 +3,7 @@ import {
 	ref,
 	set,
 	onValue,
+	off,
 	update,
 	remove,
 } from "firebase/database";
@@ -45,6 +46,11 @@ class RealtimeService {
 			const cards = snapshot.val();
 			callback(cards);
 		});
+		// cardsRef.on("value", (snapshot) => {
+		// 	const cards = snapshot.val();
+		// 	callback(cards);
+		// });
+		return () => off(cardsRef);
 	}
 	deleteCard(userId, cardId) {
 		const cardRef = ref(this.database, `users/${userId}/cards/${cardId}`);
