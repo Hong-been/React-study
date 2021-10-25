@@ -8,7 +8,7 @@ import {
 	remove,
 } from "firebase/database";
 
-class RealtimeService {
+class CardRepository {
 	constructor() {
 		this.database = getDatabase();
 	}
@@ -18,7 +18,7 @@ class RealtimeService {
 		onValue(userRef, (snapshot) => {
 			const data = snapshot.val();
 			return data.username
-				? "already signed up"
+				? ref(this.database, `users/${userId}/cards`)
 				: set(userRef, {
 						username: name,
 						email: email,
@@ -40,21 +40,17 @@ class RealtimeService {
 		});
 	}
 	getAllCardsData(userId, callback) {
-		console.log("get all cards");
 		const cardsRef = ref(this.database, `users/${userId}/cards`);
 		onValue(cardsRef, (snapshot) => {
 			const cards = snapshot.val();
 			callback(cards);
 		});
-		// cardsRef.on("value", (snapshot) => {
-		// 	const cards = snapshot.val();
-		// 	callback(cards);
-		// });
 		return () => off(cardsRef);
 	}
 	deleteCard(userId, cardId) {
 		const cardRef = ref(this.database, `users/${userId}/cards/${cardId}`);
+		set(cardRef, {});
 		remove(cardRef);
 	}
 }
-export default RealtimeService;
+export default CardRepository;

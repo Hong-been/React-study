@@ -11,9 +11,9 @@ const InputBox = memo(({ card, cardId, state, cardRepository }) => {
 		cardRepository.writeCardsData(state.id, cardId, key, value);
 	};
 
-	// useEffect(() => {
-	// 	cardRepository.writeCardsData(state.id, cardId, "id", cardId);
-	// }, []);
+	useEffect(() => {
+		cardRepository.writeCardsData(state.id, cardId, "id", cardId);
+	}, []);
 
 	return (
 		<section className={styles.container}>
