@@ -1,7 +1,10 @@
 import React, { createRef, memo } from "react";
 import styles from "./input_box.module.css";
 
-const InputBox = memo(({ cardId, state, realtimeService }) => {
+const InputBox = memo(({ card, cardId, state, realtimeService }) => {
+	const { Name, Company, Role, Statement, Number, Email, Address, imgURL } =
+		card;
+
 	const handleChange = (event) => {
 		const { value } = event.target;
 		const key = event.target["placeholder"];
@@ -16,48 +19,49 @@ const InputBox = memo(({ cardId, state, realtimeService }) => {
 					className={styles.name}
 					placeholder="Name"
 					onChange={handleChange}
+					value={Name}
 				></input>
 				<input
 					type="text"
 					className={styles.company}
 					placeholder="Company"
 					onChange={handleChange}
+					value={Company}
 				></input>
 				<input
 					type="text"
 					className={styles.role}
 					placeholder="Role"
 					onChange={handleChange}
+					value={Role}
 				></input>
 				<input
 					type="text"
 					className={styles.number}
 					placeholder="Number"
 					onChange={handleChange}
+					value={Number}
 				></input>
 				<input
 					type="text"
 					className={styles.email}
 					placeholder="Email"
 					onChange={handleChange}
+					value={Email}
 				></input>
 				<input
 					type="text"
 					className={styles.address}
 					placeholder="Address"
 					onChange={handleChange}
+					value={Address}
 				></input>
 				<input
 					type="text"
 					className={styles.statement}
 					placeholder="Statement"
 					onChange={handleChange}
-				></input>
-				<input
-					type="text"
-					className={styles.description}
-					placeholder="Description"
-					onChange={handleChange}
+					value={Statement}
 				></input>
 			</form>
 			<button className={styles.upload}>Upload Image</button>

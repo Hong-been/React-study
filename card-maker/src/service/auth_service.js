@@ -25,6 +25,7 @@ class AuthService {
 		}
 	}
 	logIn(providerName) {
+		console.log("log in");
 		try {
 			const provider = this.getProvider(providerName);
 			return signInWithPopup(this.firebaseAuth, provider);
@@ -34,11 +35,14 @@ class AuthService {
 	}
 
 	logOut() {
-		// this.firebaseAuth.signOut();
+		console.log("log out");
 		signOut(getAuth());
 	}
 	isUserSignedIn() {
-		return !!this.firebaseAuth.currentUser;
+		return !!getAuth().currentUser;
+	}
+	getUserData() {
+		return getAuth().currentUser;
 	}
 }
 export default AuthService;

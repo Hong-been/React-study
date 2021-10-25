@@ -1,13 +1,20 @@
-import React, { memo, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import styles from "./header.module.css";
 
 const Header = memo(({ state, authService }) => {
 	const history = useHistory();
-	const photoURL = state.photo;
-	const name = state.name;
+	const user = authService.getUserData();
+	console.log(user);
+	const photoURL = (user && user.photoURL) || "/images/profile_placeholder.png";
+	const name = user && user.displayName;
 
 	const [isSignedIn, setIsSignedIn] = useState(authService.isUserSignedIn());
+
+	useEffect(() => {
+		setIsSignedIn(authService.isUserSignedIn());
+		console.log("mounted update", isSignedIn);
+	});
 
 	const goToLogin = () => {
 		history.push("/login");
