@@ -44,5 +44,10 @@ class AuthService {
 	getUserData() {
 		return getAuth().currentUser;
 	}
+	onAuthChange(onUserChanged) {
+		onAuthStateChanged(getAuth(), (user) => {
+			onUserChanged(user);
+		});
+	}
 }
 export default AuthService;

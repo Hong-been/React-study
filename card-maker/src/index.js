@@ -4,14 +4,14 @@ import "./index.module.css";
 import App from "./app";
 import firebaseApp from "./service/firebase";
 import AuthService from "./service/auth_service";
-import RealtimeService from "./service/realtime_service";
+import CardRepository from "./service/card_repository";
 
 const authService = new AuthService(firebaseApp);
-const realtimeService = new RealtimeService();
+const cardRepository = new CardRepository();
 
 ReactDOM.render(
 	<React.StrictMode>
-		<App authService={authService} realtimeService={realtimeService} />
+		<App authService={authService} cardRepository={cardRepository} />
 	</React.StrictMode>,
 	document.getElementById("root")
 );

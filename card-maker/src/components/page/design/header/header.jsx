@@ -4,16 +4,23 @@ import styles from "./header.module.css";
 
 const Header = memo(({ state, authService }) => {
 	const history = useHistory();
-	const user = authService.getUserData();
-	console.log(user);
-	const photoURL = (user && user.photoURL) || "/images/profile_placeholder.png";
-	const name = user && user.displayName;
 
 	const [isSignedIn, setIsSignedIn] = useState(authService.isUserSignedIn());
+	const [userData, setUserData] = useState(state && state);
 
 	useEffect(() => {
 		setIsSignedIn(authService.isUserSignedIn());
 		console.log("mounted update", isSignedIn);
+	});
+	useEffect(() => {
+		authService.onAuthChange((user) => {
+			if (user) {
+				setUserData(user);
+				setIsSignedIn(true);
+			} else {
+				setIsSignedIn(false);
+			}
+		});
 	});
 
 	const goToLogin = () => {
@@ -26,8 +33,9 @@ const Header = memo(({ state, authService }) => {
 			<div className={styles.user}>
 				{isSignedIn ? (
 					<>
-						<img className={styles.photo} src={photoURL}></img>
-						<span className={styles.name}>Welcome {name}!</span>
+						<span className={styles.name}>
+							Welcome {userData.displayName || ""}!
+						</span>
 						<button
 							className={styles.logout}
 							onClick={() => {

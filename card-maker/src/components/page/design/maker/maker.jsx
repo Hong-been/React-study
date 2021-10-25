@@ -3,27 +3,26 @@ import styles from "./maker.module.css";
 import InputBox from "../input_box/input_box";
 import Preview from "../preview/preview";
 
-const Maker = memo(({ card, state, realtimeService }) => {
-	const cardId = Date.now();
+const Maker = memo(({ card, state, cardRepository, onDelete }) => {
 	const handleDelete = () => {
-		realtimeService.deleteCard(state.id, cardId);
+		onDelete(card.id);
 	};
 
 	return (
-		<li key={cardId} className={styles.maker}>
+		<li className={styles.maker}>
 			<button className={styles.delete} onClick={handleDelete}>
 				X
 			</button>
 			<Preview
 				card={card}
-				cardId={cardId}
-				realtimeService={realtimeService}
+				cardId={card.id}
+				cardRepository={cardRepository}
 				state={state}
 			/>
 			<InputBox
 				card={card}
-				cardId={cardId}
-				realtimeService={realtimeService}
+				cardId={card.id}
+				cardRepository={cardRepository}
 				state={state}
 			/>
 		</li>

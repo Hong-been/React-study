@@ -4,9 +4,9 @@ import Header from "../header/header";
 import MakerList from "../maker_list/maker_list";
 import { useLocation } from "react-router";
 
-const DesignPage = ({ authService, realtimeService }) => {
-	const db = realtimeService;
-	const state = { ...useLocation().state };
+const DesignPage = ({ authService, cardRepository }) => {
+	const db = cardRepository;
+	const state = useLocation().state;
 
 	useEffect(() => {
 		authService.isUserSignedIn() &&
@@ -16,7 +16,7 @@ const DesignPage = ({ authService, realtimeService }) => {
 	return (
 		<>
 			<Header authService={authService} state={state} />
-			<MakerList realtimeService={realtimeService} state={state} />
+			<MakerList cardRepository={cardRepository} state={state} />
 		</>
 	);
 };

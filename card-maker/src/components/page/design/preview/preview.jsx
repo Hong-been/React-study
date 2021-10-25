@@ -2,7 +2,7 @@ import React, { memo, useEffect, useState } from "react";
 import styles from "./preview.module.css";
 
 const DEFALUT_IMAGE = "./default.png";
-const Preview = memo(({ card, cardId, userId, realtimeService }) => {
+const Preview = memo(({ card, cardId, userId, cardRepository }) => {
 	const { Name, Company, Role, Address, Statement, Number, Email, imgURL } =
 		card;
 	const url = imgURL || DEFALUT_IMAGE;
