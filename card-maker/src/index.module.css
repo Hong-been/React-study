@@ -15,3 +15,7 @@ button {
 li {
 	list-style: none;
 }
+textarea {
+	border-style: none;
+	outline: none;
+}

@@ -56,13 +56,13 @@ const InputBox = memo(({ card, cardId, state, realtimeService }) => {
 					onChange={handleChange}
 					value={Address}
 				></input>
-				<input
+				<textarea
 					type="text"
 					className={styles.statement}
 					placeholder="Statement"
 					onChange={handleChange}
 					value={Statement}
-				></input>
+				></textarea>
 			</form>
 			<button className={styles.upload}>Upload Image</button>
 		</section>
