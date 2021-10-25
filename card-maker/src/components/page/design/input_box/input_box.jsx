@@ -40,14 +40,15 @@ const InputBox = memo(({ card, cardId, state, cardRepository }) => {
 					value={Role}
 				></input>
 				<input
-					type="text"
+					type="tel"
 					className={styles.number}
 					placeholder="Number"
+					pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
 					onChange={handleChange}
 					value={Number}
 				></input>
 				<input
-					type="text"
+					type="email"
 					className={styles.email}
 					placeholder="Email"
 					onChange={handleChange}
@@ -68,7 +69,9 @@ const InputBox = memo(({ card, cardId, state, cardRepository }) => {
 					value={Statement}
 				></textarea>
 			</form>
-			<button className={styles.upload}>Upload Image</button>
+			<button type="file" className={styles.upload}>
+				Upload Image
+			</button>
 		</section>
 	);
 });

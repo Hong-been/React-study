@@ -3,7 +3,7 @@ import styles from "./maker_list.module.css";
 import Maker from "../maker/maker";
 
 const MakerList = memo(({ state, authService, cardRepository }) => {
-	const [cards, setCards] = useState({});
+	const [cards, setCards] = useState(null);
 
 	const handleAddBtn = () => {
 		const newCardId = Date.now();
@@ -11,14 +11,22 @@ const MakerList = memo(({ state, authService, cardRepository }) => {
 	};
 
 	useEffect(() => {
-		if (!authService.isUserSignedIn()) {
-			return;
-		}
-		const stopSync = cardRepository.getAllCardsData(state.id, (cards) =>
-			setCards(cards)
-		);
-		return () => stopSync();
-	}, [state.id]);
+		authService.onAuthChange((user) => {
+			if (user) {
+				const stopSync = getCards(user.uid);
+			} else {
+				console.log("no user");
+			}
+		});
+		// return () => stopSync();
+	}, []);
+
+	const getCards = (id) => {
+		return cardRepository.getAllCardsData(id, (cards) => {
+			setCards(cards);
+			console.log(cards);
+		});
+	};
 
 	const handleDeleteBtn = (cardId) => {
 		if (!authService.isUserSignedIn()) {
