@@ -41,6 +41,7 @@ const Header = memo(({ state, authService }) => {
 							onClick={() => {
 								authService.logOut();
 								setIsSignedIn(false);
+								goToLogin();
 							}}
 						>
 							Log out

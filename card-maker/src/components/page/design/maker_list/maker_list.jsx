@@ -14,17 +14,16 @@ const MakerList = memo(({ state, authService, cardRepository }) => {
 		authService.onAuthChange((user) => {
 			if (user) {
 				const stopSync = getCards(user.uid);
+				return () => stopSync();
 			} else {
 				console.log("no user");
 			}
 		});
-		// return () => stopSync();
 	}, []);
 
 	const getCards = (id) => {
 		return cardRepository.getAllCardsData(id, (cards) => {
 			setCards(cards);
-			console.log(cards);
 		});
 	};
 
