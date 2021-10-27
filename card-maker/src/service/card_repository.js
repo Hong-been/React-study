@@ -7,10 +7,17 @@ import {
 	update,
 	remove,
 } from "firebase/database";
+import {
+	getStorage,
+	getDownloadURL,
+	uploadBytes,
+	ref as storageRef,
+} from "firebase/storage";
 
 class CardRepository {
 	constructor() {
 		this.database = getDatabase();
+		this.storage = getStorage();
 	}
 	signUpUser(userId, name, email, imageUrl) {
 		console.log("is user signed up?");
@@ -51,6 +58,37 @@ class CardRepository {
 		const cardRef = ref(this.database, `users/${userId}/cards/${cardId}`);
 		set(cardRef, {});
 		remove(cardRef);
+	}
+
+	uploadPhoto(userId, cardId, photo) {
+		const photoRef = storageRef(this.storage, `${userId}/${cardId}`);
+		uploadBytes(photoRef, photo).then((snapshot) => {
+			console.log("Uploaded a blob or file!");
+		});
+		return photoRef.fullPath;
+	}
+	downloadPhoto(userId, cardId, callback) {
+		const photoRef = storageRef(this.storage, `${userId}/${cardId}`);
+
+		getDownloadURL(photoRef) //
+			.then(callback)
+			.catch((error) => {
+				console.log(photoRef);
+				switch (error.code) {
+					case "storage/object-not-found":
+						console.log("File doesn't exist");
+						break;
+					case "storage/unauthorized":
+						console.log("User doesn't have permission to access the object");
+						break;
+					case "storage/canceled":
+						console.log("User canceled the upload");
+						break;
+					case "storage/unknown":
+						console.log("Unknown error occurred, inspect the server response");
+						break;
+				}
+			});
 	}
 }
 export default CardRepository;

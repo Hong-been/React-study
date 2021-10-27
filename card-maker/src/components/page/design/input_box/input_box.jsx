@@ -4,8 +4,7 @@ import styles from "./input_box.module.css";
 const InputBox = memo(({ card, cardId, state, cardRepository }) => {
 	const imageInputRef = useRef();
 
-	const { Name, Company, Role, Statement, Number, Email, Address, imgURL } =
-		card;
+	const { Name, Company, Role, Statement, Number, Email, Address } = card;
 	const [profileImage, setProfileImage] = useState(null);
 
 	const handleChange = (event) => {
@@ -14,19 +13,14 @@ const InputBox = memo(({ card, cardId, state, cardRepository }) => {
 		cardRepository.writeCardsData(state.id, cardId, key, value);
 	};
 
-	useEffect(() => {
-		// cardRepository.writeCardsData(state.id, cardId, "id", cardId);
-	}, []);
-
 	const handleSubmit = (event) => {
 		event.preventDefault();
-
-		cardRepository.writeCardsData(state.id, cardId, "imgURL", profileImage);
+		const ref = cardRepository.uploadPhoto(state.id, cardId, profileImage);
+		console.log(ref);
 	};
 	const handleChangeImage = (event) => {
 		const file = imageInputRef.current.files[0];
-		console.log(URL.createObjectURL(file));
-		setProfileImage(event.target.value);
+		setProfileImage(file);
 	};
 
 	return (

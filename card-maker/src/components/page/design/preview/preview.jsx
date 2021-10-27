@@ -2,13 +2,20 @@ import React, { memo, useEffect, useState } from "react";
 import styles from "./preview.module.css";
 
 const DEFALUT_IMAGE = "./default.png";
-const Preview = memo(({ card, cardId, userId, cardRepository }) => {
-	const { Name, Company, Role, Address, Statement, Number, Email, imgURL } =
-		card;
-	const url = imgURL || DEFALUT_IMAGE;
+
+const Preview = memo(({ card, cardId, state, cardRepository }) => {
+	const { Name, Company, Role, Address, Statement, Number, Email } = card;
+	const [photoData, setPhotoData] = useState(DEFALUT_IMAGE);
+
+	useEffect(() => cardRepository.downloadPhoto(state.id, cardId, getPhotoData));
+
+	const getPhotoData = (url) => {
+		setPhotoData(url);
+	};
+
 	return (
 		<section className={styles.card}>
-			<img className={styles.img} src={url} alt="profile photo"></img>
+			<img className={styles.img} src={photoData} alt="profile photo"></img>
 			<div className={styles.detail}>
 				<p className={styles.name}>{Name}</p>
 				<p className={styles.company}>{Company}</p>
