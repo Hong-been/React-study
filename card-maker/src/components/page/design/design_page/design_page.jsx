@@ -6,7 +6,22 @@ import { useLocation } from "react-router";
 
 const DesignPage = ({ authService, cardRepository }) => {
 	const db = cardRepository;
-	const state = useLocation().state;
+	const [state, setState] = useState(useLocation().state);
+
+	useEffect(() => {
+		authService.onAuthChange((user) => {
+			if (user) {
+				setState({
+					id: user.uid,
+					name: user.displayName,
+					email: user.email,
+					photo: user.photoURL || "/images/profile_placeholder.png",
+				});
+			} else {
+				console.log("Design page: no user");
+			}
+		});
+	}, []);
 
 	useEffect(() => {
 		authService.isUserSignedIn() &&

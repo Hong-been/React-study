@@ -1,9 +1,12 @@
-import React, { createRef, memo, useEffect } from "react";
+import React, { createRef, memo, useEffect, useRef, useState } from "react";
 import styles from "./input_box.module.css";
 
 const InputBox = memo(({ card, cardId, state, cardRepository }) => {
+	const imageInputRef = useRef();
+
 	const { Name, Company, Role, Statement, Number, Email, Address, imgURL } =
 		card;
+	const [profileImage, setProfileImage] = useState(null);
 
 	const handleChange = (event) => {
 		const { value } = event.target;
@@ -12,8 +15,19 @@ const InputBox = memo(({ card, cardId, state, cardRepository }) => {
 	};
 
 	useEffect(() => {
-		cardRepository.writeCardsData(state.id, cardId, "id", cardId);
+		// cardRepository.writeCardsData(state.id, cardId, "id", cardId);
 	}, []);
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+
+		cardRepository.writeCardsData(state.id, cardId, "imgURL", profileImage);
+	};
+	const handleChangeImage = (event) => {
+		const file = imageInputRef.current.files[0];
+		console.log(URL.createObjectURL(file));
+		setProfileImage(event.target.value);
+	};
 
 	return (
 		<section className={styles.container}>
@@ -69,9 +83,18 @@ const InputBox = memo(({ card, cardId, state, cardRepository }) => {
 					value={Statement}
 				></textarea>
 			</form>
-			<button type="file" className={styles.upload}>
-				Upload Image
-			</button>
+			<form method="post" action="upload">
+				<input
+					ref={imageInputRef}
+					type="file"
+					name="profile"
+					accept="image/png, image/jpeg"
+					onChange={handleChangeImage}
+				></input>
+				<button type="submit" className={styles.upload} onClick={handleSubmit}>
+					Upload Image
+				</button>
+			</form>
 		</section>
 	);
 });
