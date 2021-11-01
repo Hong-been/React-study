@@ -9,7 +9,7 @@
 
 2. YouTube Clone Coding
 - 개발 일자 : 18/10/2021 ~ 20/10/2021
-- URL : [배포 URL✨](https://hongbeen-habittracker.netlify.app/)
+- URL : [배포 URL✨](https://61711e100c71a9940fe402bf--jovial-panini-8d6274.netlify.app/)
 - 다크모드-처음 화면
 <img width="600" alt="스크린샷 2021-11-01 오후 2 49 45" src="https://user-images.githubusercontent.com/65804460/139627360-e4234efc-951a-4c56-b491-84ba32d6532c.png">
 - 브라이트 모드-처음 화면
