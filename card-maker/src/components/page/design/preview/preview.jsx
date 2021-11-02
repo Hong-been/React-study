@@ -31,20 +31,24 @@ const Preview = memo(({ card }) => {
 	return (
 		<div className={styles.container}>
 			<section className={styles.card}>
+				<div className={styles.detail}>
+					<div className={styles.top}>
+						<p className={styles.name}>{Name}</p>
+						<p className={styles.statement}>{Statement}</p>
+					</div>
+					<div className={styles.bottom}>
+						<p className={styles.company}>{Company}</p>
+						<p className={styles.role}>{Role}</p>
+						<p className={styles.number}>{Number && "📞" + Number}</p>
+						<p className={styles.email}>{Email && "✉️" + Email}</p>
+						<p className={styles.address}>{Address && "🏢" + Address}</p>
+					</div>
+				</div>
 				<img
 					className={isHiddenActive ? (styles.img, styles.hidden) : styles.img}
 					src={fileURL || DEFALUT_IMAGE}
 					alt="profile photo"
 				></img>
-				<div className={styles.detail}>
-					<p className={styles.name}>{Name}</p>
-					<p className={styles.company}>{Company}</p>
-					<p className={styles.role}>{Role}</p>
-					<p className={styles.statement}>{Statement}</p>
-					<p className={styles.number}>{Number}</p>
-					<p className={styles.email}>{Email}</p>
-					<p className={styles.address}>{Address}</p>
-				</div>
 			</section>
 			<button className={styles.button} onClick={onHideButtonClick}>
 				{hideorShowMessage}
