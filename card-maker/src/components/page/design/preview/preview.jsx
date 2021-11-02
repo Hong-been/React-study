@@ -39,9 +39,9 @@ const Preview = memo(({ card }) => {
 					<div className={styles.bottom}>
 						<p className={styles.company}>{Company}</p>
 						<p className={styles.role}>{Role}</p>
-						<p className={styles.number}>{Number && "📞" + Number}</p>
-						<p className={styles.email}>{Email && "✉️" + Email}</p>
-						<p className={styles.address}>{Address && "🏢" + Address}</p>
+						<p className={styles.number}>{Number}</p>
+						<p className={styles.email}>{Email}</p>
+						<p className={styles.address}>{Address}</p>
 					</div>
 				</div>
 				<img
