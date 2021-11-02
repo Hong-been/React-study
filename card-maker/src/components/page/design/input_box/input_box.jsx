@@ -1,5 +1,6 @@
 import React, { createRef, memo, useEffect, useRef, useState } from "react";
 import styles from "./input_box.module.css";
+import ImageFileInput from "../image_file_input/image_file_input";
 
 const InputBox = memo(({ card, cardId, state, cardRepository }) => {
 	const imageInputRef = useRef();
@@ -51,7 +52,6 @@ const InputBox = memo(({ card, cardId, state, cardRepository }) => {
 					type="tel"
 					className={styles.number}
 					placeholder="Number"
-					pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
 					onChange={handleChange}
 					value={Number}
 				></input>
