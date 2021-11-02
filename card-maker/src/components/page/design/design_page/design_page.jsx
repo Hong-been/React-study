@@ -4,18 +4,17 @@ import Header from "../header/header";
 import MakerList from "../maker_list/maker_list";
 import { useLocation } from "react-router";
 
-const DesignPage = ({ authService, cardRepository }) => {
-	const db = cardRepository;
+const DesignPage = ({ FileInput, authService, cardRepository }) => {
 	const [state, setState] = useState(useLocation().state);
 
 	useEffect(() => {
 		authService.onAuthChange((user) => {
 			if (user) {
 				setState({
+					...state,
 					id: user.uid,
 					name: user.displayName,
 					email: user.email,
-					photo: user.photoURL || "/images/profile_placeholder.png",
 				});
 			} else {
 				console.log("Design page: no user");
@@ -24,17 +23,17 @@ const DesignPage = ({ authService, cardRepository }) => {
 	}, []);
 
 	useEffect(() => {
-		authService.isUserSignedIn() &&
-			db.signUpUser(state.id, state.name, state.email, state.photo);
-	});
+		cardRepository.signUpUser(state.id, state.name, state.email);
+	}, [state]);
 
 	return (
 		<>
-			<Header authService={authService} state={state} />
+			<Header authService={authService} userData={state} />
 			<MakerList
+				FileInput={FileInput}
 				authService={authService}
 				cardRepository={cardRepository}
-				state={state}
+				userData={state}
 			/>
 		</>
 	);

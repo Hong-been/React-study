@@ -1,5 +1,5 @@
 .container {
-	flex: 0 1 60%;
+	flex: 0 1 auto;
 }
 .information {
 	margin: 0 1rem;
@@ -7,8 +7,8 @@
 	flex-wrap: wrap;
 	justify-content: space-between;
 }
-.information > input,
-.information > textarea {
+
+.input {
 	height: 2rem;
 	flex-basis: 45%;
 	border: none;
@@ -18,17 +18,10 @@
 	margin: 0.8em 0;
 	font-size: 1rem;
 }
-.information .statement,
-.information .description {
+.statement {
 	flex: 1 1 90%;
-}
-.upload {
-	width: fit-content;
-	margin-top: 1rem;
 	font-size: 1rem;
-	padding: 0.8em 1em;
-	border-radius: 15px;
-	color: white;
-	margin-right: 2%;
-	background-color: skyblue;
+	padding: 5px;
+	margin: 0.8em 0;
+	height: 2rem;
 }

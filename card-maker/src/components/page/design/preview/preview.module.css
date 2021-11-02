@@ -1,11 +1,21 @@
+.hidden {
+	width: 0px;
+	height: 0px;
+}
+.container {
+	width: 100%;
+	height: 15rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 .card {
 	display: flex;
-	flex: 0 0 400px;
-	min-width: 250px;
+	flex: 0 0 80%;
+	width: 400px;
 	background-color: rgba(184, 184, 184, 0.2);
 	border-radius: 10px;
-	width: 100%;
-	height: 14rem;
 	margin-bottom: 5%;
 	justify-content: center;
 	align-items: center;
@@ -25,8 +35,17 @@
 }
 .img {
 	margin: 1rem;
-	border: 1px solid white;
 	width: 120px;
 	height: 120px;
 	border-radius: 50%;
+}
+.button {
+	width: fit-content;
+	margin-top: 1rem;
+	font-size: 1rem;
+	padding: 0.8em 1em;
+	border-radius: 15px;
+	color: white;
+	margin-right: 2%;
+	background-color: skyblue;
 }

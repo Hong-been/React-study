@@ -3,30 +3,42 @@ import styles from "./maker.module.css";
 import InputBox from "../input_box/input_box";
 import Preview from "../preview/preview";
 
-const Maker = memo(({ card, state, cardRepository, onDelete }) => {
-	const handleDelete = () => {
-		onDelete(card.id);
-	};
+const Maker = memo(
+	({
+		key,
+		card,
+		userData,
+		updateCard,
+		FileInput,
+		cardRepository,
+		onDelete,
+	}) => {
+		const handleDelete = () => {
+			onDelete(card.id);
+		};
 
-	return (
-		<li className={styles.maker}>
-			<button className={styles.delete} onClick={handleDelete}>
-				X
-			</button>
-			<Preview
-				card={card}
-				cardId={card.id}
-				cardRepository={cardRepository}
-				state={state}
-			/>
-			<InputBox
-				card={card}
-				cardId={card.id}
-				cardRepository={cardRepository}
-				state={state}
-			/>
-		</li>
-	);
-});
+		return (
+			<li key={key} className={styles.maker}>
+				<button className={styles.delete} onClick={handleDelete}>
+					X
+				</button>
+				<Preview
+					card={card}
+					cardId={card.id}
+					cardRepository={cardRepository}
+					userData={userData}
+				/>
+				<InputBox
+					card={card}
+					cardId={card.id}
+					updateCard={updateCard}
+					FileInput={FileInput}
+					cardRepository={cardRepository}
+					userData={userData}
+				/>
+			</li>
+		);
+	}
+);
 
 export default Maker;
