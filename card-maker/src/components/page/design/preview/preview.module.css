@@ -81,6 +81,7 @@
 	color: white;
 	margin-right: 2%;
 	background-color: skyblue;
+	align-self: flex-end;
 }
 .bottom {
 	display: flex;

@@ -3,8 +3,7 @@
 }
 .button {
 	display: block;
-	width: fit-content;
-	margin: 1rem auto 0 auto;
+	margin: auto;
 	font-size: 1rem;
 	padding: 0.8em 1em;
 	border-radius: 15px;
