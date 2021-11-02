@@ -16,7 +16,7 @@ const Preview = memo(({ card }) => {
 	}, [fileURL]);
 
 	useEffect(() => {
-		if (!isHiddenActive) {
+		if (isHiddenActive) {
 			setHideorShowMessage(SHOW_MESSAGE);
 		} else {
 			setHideorShowMessage(HIDE_MESSAGE);
