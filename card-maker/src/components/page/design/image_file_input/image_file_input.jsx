@@ -29,7 +29,7 @@ const ImageFileInput = ({ imageUploader, name, onFileChange }) => {
 				accept="image/*"
 			></input>
 			<button className={styles.button} onClick={onButtonClick}>
-				{name || "Choose Image File!"}
+				{name || "Choose Image File"}
 			</button>
 		</>
 	);

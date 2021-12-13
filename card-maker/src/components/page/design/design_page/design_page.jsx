@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import styles from "./design_page.module.css";
 import Header from "../header/header";
 import MakerList from "../maker_list/maker_list";
@@ -6,6 +7,11 @@ import { useLocation } from "react-router";
 
 const DesignPage = ({ FileInput, authService, cardRepository }) => {
 	const [state, setState] = useState(useLocation().state);
+	const history = useHistory();
+
+	const goToLogin = () => {
+		history.push("/login");
+	};
 
 	useEffect(() => {
 		authService.onAuthChange((user) => {
@@ -23,12 +29,20 @@ const DesignPage = ({ FileInput, authService, cardRepository }) => {
 	}, []);
 
 	useEffect(() => {
+		if (!state) goToLogin();
+	});
+
+	useEffect(() => {
 		cardRepository.signUpUser(state.id, state.name, state.email);
 	}, [state]);
 
-	return (
+	return state ? (
 		<>
-			<Header authService={authService} userData={state} />
+			<Header
+				authService={authService}
+				userData={state}
+				goToLogin={goToLogin}
+			/>
 			<MakerList
 				FileInput={FileInput}
 				authService={authService}
@@ -36,6 +50,8 @@ const DesignPage = ({ FileInput, authService, cardRepository }) => {
 				userData={state}
 			/>
 		</>
+	) : (
+		<></>
 	);
 };
 

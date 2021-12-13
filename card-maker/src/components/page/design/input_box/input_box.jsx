@@ -3,7 +3,7 @@ import styles from "./input_box.module.css";
 
 const InputBox = memo(
 	({ card, cardId, userData, updateCard, FileInput, cardRepository }) => {
-		const { Name, Company, Role, Statement, Number, Email, Address } = card;
+		const { Name, Company, Role, Position, Number, Email, Address } = card;
 
 		const onFileChange = (file) => {
 			updateCard({ ...card, fileName: file.name, fileURL: file.url });
@@ -40,6 +40,13 @@ const InputBox = memo(
 						value={Role}
 					></input>
 					<input
+						type="text"
+						className={(styles.Position, styles.input)}
+						placeholder="Position"
+						onChange={handleChange}
+						value={Position}
+					></input>
+					<input
 						type="tel"
 						className={(styles.number, styles.input)}
 						placeholder="Number"
@@ -60,13 +67,6 @@ const InputBox = memo(
 						onChange={handleChange}
 						value={Address}
 					></input>
-					<textarea
-						type="text"
-						className={styles.statement}
-						placeholder="Statement"
-						onChange={handleChange}
-						value={Statement}
-					></textarea>
 				</form>
 				<div className={styles.fileInput}>
 					<FileInput onFileChange={onFileChange} />

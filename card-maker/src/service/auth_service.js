@@ -25,7 +25,6 @@ class AuthService {
 		}
 	}
 	logIn(providerName) {
-		console.log("log in");
 		try {
 			const provider = this.getProvider(providerName);
 			return signInWithPopup(this.firebaseAuth, provider);

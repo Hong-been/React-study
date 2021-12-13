@@ -4,12 +4,26 @@ import Maker from "../maker/maker";
 
 const MakerList = memo(
 	({ userData, FileInput, authService, cardRepository }) => {
-		const [cards, setCards] = useState({});
+		const [cards, setCards] = useState({
+			0: {
+				Address:
+					"서울특별시 강남구 테헤란로 124, 15층, 16층 (역삼동, 삼원타워)",
+				Company: "Bithumb",
+				Position: "사원",
+				Email: "jinsil@naver.com",
+				Name: "서진실",
+				Number: "010-9016-7390",
+				Role: "자금세탁방지 ",
+				fileURL: null,
+				id: 0,
+			},
+		});
 
 		const updateCard = (card) => {
 			setCards((cards) => {
 				const updated = { ...cards };
 				updated[card.id] = card;
+				console.log(card);
 				return updated;
 			});
 		};
@@ -47,10 +61,8 @@ const MakerList = memo(
 		};
 
 		const handleDeleteBtn = (cardId) => {
-			if (!authService.isUserSignedIn()) {
-				return;
-			}
-			cardRepository.deleteCard(userData.id, cardId);
+			delete cards[cardId];
+			setCards({ ...cards });
 		};
 
 		return (

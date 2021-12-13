@@ -1,20 +1,28 @@
+@value mediaQueryPC,mediaQueryTablet from '../../../../common/size.css';
+@value makerViolet from '../../../../common/colors.css';
+
 .list {
-	width: 100%;
-	margin-top: 0.5rem;
+	margin: 0.5rem auto 0 auto;
 }
 
 .add {
 	z-index: 10;
 	position: fixed;
-	top: 90vh;
-	left: 93vw;
+	top: 92%;
+	left: 3%;
 	color: white;
 	font-size: 2rem;
 	font-weight: 700;
-	background-color: blue;
+	background-color: makerViolet;
 	border-radius: 50%;
 	width: 2.5rem;
 	height: 2.5rem;
 	line-height: 2.5rem;
 	text-align: center;
+}
+
+@media screen and (min-width: mediaQueryTablet) {
+	.list {
+		max-width: mediaQueryTablet;
+	}
 }

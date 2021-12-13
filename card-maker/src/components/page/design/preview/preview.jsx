@@ -1,12 +1,13 @@
 import React, { memo, useEffect, useRef, useState } from "react";
 import styles from "./preview.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const DEFALUT_IMAGE = "./default.png";
 const HIDE_MESSAGE = "Hide Image";
 const SHOW_MESSAGE = "Show Image";
 
 const Preview = memo(({ card }) => {
-	const { Name, Company, Role, Address, Statement, Number, Email, fileURL } =
+	const { Name, Company, Role, Address, Position, Number, Email, fileURL } =
 		card;
 	const [isHiddenActive, setIsHiddenActive] = useState(false);
 	const [hideorShowMessage, setHideorShowMessage] = useState(HIDE_MESSAGE);
@@ -32,23 +33,38 @@ const Preview = memo(({ card }) => {
 		<div className={styles.container}>
 			<section className={styles.card}>
 				<div className={styles.detail}>
+					<img
+						className={
+							isHiddenActive ? (styles.img, styles.hidden) : styles.img
+						}
+						src={fileURL || DEFALUT_IMAGE}
+						alt="profile photo"
+					></img>
 					<div className={styles.top}>
-						<p className={styles.name}>{Name}</p>
-						<p className={styles.statement}>{Statement}</p>
+						<div className={styles.person}>
+							<span className={styles.position}>{Position}</span>
+							<span className={styles.name}>{Name}</span>
+						</div>
+						<div className={styles.companyInfo}>
+							<span className={styles.company}>{Company}</span>
+							<span className={styles.role}>{Role}</span>
+						</div>
 					</div>
 					<div className={styles.bottom}>
-						<p className={styles.company}>{Company}</p>
-						<p className={styles.role}>{Role}</p>
-						<p className={styles.number}>{Number}</p>
-						<p className={styles.email}>{Email}</p>
-						<p className={styles.address}>{Address}</p>
+						<span className={styles.address}>
+							<FontAwesomeIcon icon="map-marker-alt" />
+							{`  ${Address}`}
+						</span>
+						<span className={styles.number}>
+							<FontAwesomeIcon icon="phone-alt" />
+							{`  ${Number}`}
+						</span>
+						<span className={styles.email}>
+							<FontAwesomeIcon icon="envelope" />
+							{`  ${Email}`}
+						</span>
 					</div>
 				</div>
-				<img
-					className={isHiddenActive ? (styles.img, styles.hidden) : styles.img}
-					src={fileURL || DEFALUT_IMAGE}
-					alt="profile photo"
-				></img>
 			</section>
 			<button className={styles.button} onClick={onHideButtonClick}>
 				{hideorShowMessage}

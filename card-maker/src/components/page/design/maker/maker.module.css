@@ -1,3 +1,6 @@
+@value mediaQueryTablet from '../../../../common/size.css';
+@value makerWhite,makerViolet from '../../../../common/colors.css';
+
 .maker {
 	position: relative;
 	display: flex;
@@ -5,20 +8,30 @@
 	align-items: center;
 	margin: 0.5rem;
 	padding: 1rem 0.5rem;
-	border-radius: 15px;
-	border: 1px solid skyblue;
+	border-radius: 5px;
+	border: 2px solid makerViolet;
 }
 .delete {
 	position: absolute;
-	top: 10px;
-	right: 10px;
+	top: 8px;
+	right: 8px;
 	margin-left: 0.3em;
 	font-size: 1rem;
-	background-color: darkgray;
-	color: white;
 	border-radius: 50%;
 	width: 30px;
 	height: 30px;
 	line-height: 30px;
 	text-align: center;
+	background-color: makerViolet;
+}
+.deleteIcon {
+	width: 22px;
+	color: makerWhite;
+}
+
+@media screen and (max-width: mediaQueryTablet) {
+	.maker {
+		display: flex;
+		flex-direction: column;
+	}
 }

@@ -7,20 +7,12 @@ import {
 	update,
 	remove,
 } from "firebase/database";
-import {
-	getStorage,
-	getDownloadURL,
-	uploadBytes,
-	ref as storageRef,
-} from "firebase/storage";
 
 class CardRepository {
 	constructor() {
 		this.database = getDatabase();
-		this.storage = getStorage();
 	}
 	signUpUser(userId, name, email) {
-		console.log("is user signed up?");
 		const userRef = ref(this.database, `users/${userId}`);
 		onValue(userRef, (snapshot) => {
 			const data = snapshot.val();

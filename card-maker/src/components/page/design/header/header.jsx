@@ -2,37 +2,20 @@ import React, { memo, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import styles from "./header.module.css";
 
-const Header = memo(({ userData, authService }) => {
-	const history = useHistory();
-
-	const [isSignedIn, setIsSignedIn] = useState(!!userData.id);
-
-	// useEffect(() => {
-	// 	setIsSignedIn(authService.isUserSignedIn());
-	// 	console.log("mounted update", isSignedIn);
-	// });
-	// useEffect(() => {
-	// 	authService.onAuthChange((user) => {
-	// 		if (user) {
-	// 			setUserData(user);
-	// 			setIsSignedIn(true);
-	// 		} else {
-	// 			setIsSignedIn(false);
-	// 		}
-	// 	});
-	// });
-
-	const goToLogin = () => {
-		history.push("/login");
-	};
+const Header = memo(({ userData, authService, goToLogin }) => {
+	const [isSignedIn, setIsSignedIn] = useState(
+		userData ? !!userData.id : goToLogin()
+	);
 
 	return (
 		<header className={styles.header}>
-			<div className={styles.title}>Business Card Maker</div>
+			<div className={styles.title}>HONG CARD</div>
 			<div className={styles.user}>
 				{isSignedIn ? (
 					<>
-						<span className={styles.name}>Welcome {userData.name || ""}!</span>
+						<span className={styles.name}>
+							{userData.name || ""}님 안녕하세요💖
+						</span>
 						<button
 							className={styles.logout}
 							onClick={() => {

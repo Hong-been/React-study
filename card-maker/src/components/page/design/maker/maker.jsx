@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import styles from "./maker.module.css";
 import InputBox from "../input_box/input_box";
 import Preview from "../preview/preview";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Maker = memo(
 	({
@@ -20,8 +21,9 @@ const Maker = memo(
 		return (
 			<li key={key} className={styles.maker}>
 				<button className={styles.delete} onClick={handleDelete}>
-					X
+					<FontAwesomeIcon className={styles.deleteIcon} icon="trash" />
 				</button>
+
 				<Preview
 					card={card}
 					cardId={card.id}
