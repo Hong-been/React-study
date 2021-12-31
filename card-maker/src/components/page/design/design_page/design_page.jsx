@@ -80,7 +80,7 @@ const DesignPage = memo(({ FileInput, authService, cardRepository }) => {
 			/>
 			<MakerList
 				FileInput={FileInput}
-				cards={cards}
+				cards={cards.cards}
 				addCard={createCard}
 				updateCard={updateCard}
 				deleteCard={deleteCard}
