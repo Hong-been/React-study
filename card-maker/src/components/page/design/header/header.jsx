@@ -1,33 +1,21 @@
-import React, { memo, useEffect, useState } from "react";
-import { useHistory } from "react-router";
+import React, { memo } from "react";
 import styles from "./header.module.css";
 
-const Header = memo(({ userData, authService, goToLogin }) => {
-	const [isSignedIn, setIsSignedIn] = useState(
-		userData ? !!userData.id : goToLogin()
-	);
-
+const Header = memo(({ userName, onLogOut, onLogIn }) => {
+	// console.log("header");
 	return (
 		<header className={styles.header}>
 			<div className={styles.title}>HONG CARD</div>
 			<div className={styles.user}>
-				{isSignedIn ? (
+				{userName ? (
 					<>
-						<span className={styles.name}>
-							{userData.name || ""}님 안녕하세요💖
-						</span>
-						<button
-							className={styles.logout}
-							onClick={() => {
-								authService.logOut();
-								goToLogin();
-							}}
-						>
+						<span className={styles.name}>{userName}님 안녕하세요💖</span>
+						<button className={styles.logout} onClick={onLogOut}>
 							Log out
 						</button>
 					</>
 				) : (
-					<button className={styles.logIn} onClick={goToLogin}>
+					<button className={styles.logIn} onClick={onLogIn}>
 						Log In
 					</button>
 				)}

@@ -14,16 +14,6 @@ class AuthService {
 		this.githubProvider = new GithubAuthProvider();
 	}
 
-	getProvider(providerName) {
-		switch (providerName) {
-			case "Google":
-				return this.googleProvider;
-			case "Github":
-				return this.githubProvider;
-			default:
-				throw new Error(`not supported provider ${providerName}`);
-		}
-	}
 	logIn(providerName) {
 		try {
 			const provider = this.getProvider(providerName);
@@ -34,19 +24,29 @@ class AuthService {
 	}
 
 	logOut() {
-		console.log("log out");
-		signOut(getAuth());
+		signOut(this.firebaseAuth);
 	}
 	isUserSignedIn() {
-		return !!getAuth().currentUser;
+		return !!this.firebaseAuth.currentUser;
 	}
 	getUserData() {
-		return getAuth().currentUser;
+		return this.firebaseAuth.currentUser;
 	}
 	onAuthChange(onUserChanged) {
-		onAuthStateChanged(getAuth(), (user) => {
+		onAuthStateChanged(this.firebaseAuth, (user) => {
 			onUserChanged(user);
 		});
+	}
+
+	getProvider(providerName) {
+		switch (providerName) {
+			case "Google":
+				return this.googleProvider;
+			case "Github":
+				return this.githubProvider;
+			default:
+				throw new Error(`not supported provider ${providerName}`);
+		}
 	}
 }
 export default AuthService;

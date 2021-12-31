@@ -1,8 +1,8 @@
-import React, { memo, useEffect, useRef, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import styles from "./preview.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const DEFALUT_IMAGE = "./default.png";
+const DEFALUT_IMAGE = "#";
 const HIDE_MESSAGE = "Hide Image";
 const SHOW_MESSAGE = "Show Image";
 
@@ -32,14 +32,18 @@ const Preview = memo(({ card }) => {
 	return (
 		<div className={styles.container}>
 			<section className={styles.card}>
-				<div className={styles.detail}>
+				{isHiddenActive ? (
+					<></>
+				) : (
 					<img
 						className={
 							isHiddenActive ? (styles.img, styles.hidden) : styles.img
 						}
 						src={fileURL || DEFALUT_IMAGE}
-						alt="profile photo"
+						alt="profile"
 					></img>
+				)}
+				<div className={styles.detail}>
 					<div className={styles.top}>
 						<div className={styles.person}>
 							<span className={styles.position}>{Position}</span>
@@ -53,15 +57,15 @@ const Preview = memo(({ card }) => {
 					<div className={styles.bottom}>
 						<span className={styles.address}>
 							<FontAwesomeIcon icon="map-marker-alt" />
-							{`  ${Address}`}
+							{Address && `  ${Address}`}
 						</span>
 						<span className={styles.number}>
 							<FontAwesomeIcon icon="phone-alt" />
-							{`  ${Number}`}
+							{Number && `  ${Number}`}
 						</span>
 						<span className={styles.email}>
 							<FontAwesomeIcon icon="envelope" />
-							{`  ${Email}`}
+							{Email && `  ${Email}`}
 						</span>
 					</div>
 				</div>

@@ -1,58 +1,92 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState, useCallback } from "react";
 import { useHistory } from "react-router";
-import styles from "./design_page.module.css";
 import Header from "../header/header";
 import MakerList from "../maker_list/maker_list";
-import { useLocation } from "react-router";
 
-const DesignPage = ({ FileInput, authService, cardRepository }) => {
-	const [state, setState] = useState(useLocation().state);
+const DesignPage = memo(({ FileInput, authService, cardRepository }) => {
 	const history = useHistory();
+	const historyState = history.state;
+	const [userId, setUserId] = useState(historyState ? historyState.id : "");
+	const [userName, setUserName] = useState(
+		historyState ? historyState.name : ""
+	);
+	const [cards, setCards] = useState({});
 
-	const goToLogin = () => {
-		history.push("/login");
-	};
+	const onLogOut = useCallback(() => {
+		authService.logOut();
+	}, [authService]);
+
+	useEffect(async () => {
+		if (!userId) return;
+
+		const stopSync = await cardRepository.syncCards(
+			userId,
+			userName,
+			(cards) => {
+				setCards(cards);
+			}
+		);
+
+		return () => stopSync();
+	}, [userId, cardRepository]);
 
 	useEffect(() => {
 		authService.onAuthChange((user) => {
 			if (user) {
-				setState({
-					...state,
-					id: user.uid,
-					name: user.displayName,
-					email: user.email,
-				});
-			} else {
-				console.log("Design page: no user");
-			}
+				setUserId(user.uid);
+				setUserName(user.displayName);
+			} else history.push("/");
 		});
-	}, []);
+	}, [authService, userId, history]);
 
-	useEffect(() => {
-		if (!state) goToLogin();
-	});
+	const updateCard = (card) => {
+		setCards((cards) => {
+			const updated = { ...cards };
+			updated[card.id] = card;
+			return updated;
+		});
 
-	useEffect(() => {
-		cardRepository.signUpUser(state.id, state.name, state.email);
-	}, [state]);
+		cardRepository.saveCard(userId, card);
+	};
 
-	return state ? (
+	const createCard = (event) => {
+		event.preventDefault();
+		const newCardId = Date.now();
+		const newCard = {
+			[newCardId]: {
+				id: newCardId,
+				fileURL: null,
+			},
+		};
+
+		updateCard(newCard);
+	};
+
+	const deleteCard = (card) => {
+		setCards((cards) => {
+			const updated = { ...cards };
+			delete updated[card.id];
+			return updated;
+		});
+		cardRepository.removeCard(userId, card);
+	};
+
+	return (
 		<>
 			<Header
-				authService={authService}
-				userData={state}
-				goToLogin={goToLogin}
+				userName={userName}
+				onLogOut={onLogOut}
+				onLogIn={() => history.push("/")}
 			/>
 			<MakerList
 				FileInput={FileInput}
-				authService={authService}
-				cardRepository={cardRepository}
-				userData={state}
+				cards={cards}
+				addCard={createCard}
+				updateCard={updateCard}
+				deleteCard={deleteCard}
 			/>
 		</>
-	) : (
-		<></>
 	);
-};
+});
 
 export default DesignPage;

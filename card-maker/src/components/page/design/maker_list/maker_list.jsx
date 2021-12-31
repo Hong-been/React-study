@@ -1,85 +1,60 @@
-import React, { createRef, memo, useEffect, useState } from "react";
+import React, { memo } from "react";
 import styles from "./maker_list.module.css";
 import Maker from "../maker/maker";
 
 const MakerList = memo(
-	({ userData, FileInput, authService, cardRepository }) => {
-		const [cards, setCards] = useState({
-			0: {
-				Address:
-					"서울특별시 강남구 테헤란로 124, 15층, 16층 (역삼동, 삼원타워)",
-				Company: "Bithumb",
-				Position: "사원",
-				Email: "jinsil@naver.com",
-				Name: "서진실",
-				Number: "010-9016-7390",
-				Role: "자금세탁방지 ",
-				fileURL: null,
-				id: 0,
-			},
-		});
+	({ FileInput, cards, addCard, updateCard, deleteCard }) => {
+		// const updateCard = (card) => {
+		// 	setCards((cards) => {
+		// 		const updated = { ...cards };
+		// 		updated[card.id] = card;
+		// 		// console.log(card);
+		// 		return updated;
+		// 	});
+		// };
 
-		const updateCard = (card) => {
-			setCards((cards) => {
-				const updated = { ...cards };
-				updated[card.id] = card;
-				console.log(card);
-				return updated;
-			});
-		};
+		// const getCards = useCallback(
+		// 	(id) => {
+		// 		return cardRepository.getAllCardsData(id, (cards) => {
+		// 			setCards({ ...cards });
+		// 		});
+		// 	},
+		// 	[cardRepository]
+		// );
 
-		const handleAddBtn = () => {
-			const newCardId = Date.now();
-			setCards({
-				...cards,
-				[newCardId]: {
-					id: newCardId,
-					fileURL: null,
-				},
-			});
-		};
+		// useEffect(() => {
+		// 	cardRepository.writeCardsData(userData.id, cards);
+		// }, [cardRepository, userData, cards]);
 
-		useEffect(() => {
-			cardRepository.writeCardsData(userData.id, cards);
-		}, [cards]);
+		// useEffect(() => {
+		// 	authService.onAuthChange((user) => {
+		// 		if (user) {
+		// 			const stopSync = getCards(user.uid);
+		// 			return () => stopSync();
+		// 		} else {
+		// 			console.log("maker_list.jsx : no user");
+		// 		}
+		// 	});
+		// }, [authService, getCards]);
 
-		useEffect(() => {
-			authService.onAuthChange((user) => {
-				if (user) {
-					const stopSync = getCards(user.uid);
-					return () => stopSync();
-				} else {
-					console.log("maker_list.jsx : no user");
-				}
-			});
-		}, []);
-
-		const getCards = (id) => {
-			return cardRepository.getAllCardsData(id, (cards) => {
-				setCards({ ...cards });
-			});
-		};
-
-		const handleDeleteBtn = (cardId) => {
-			delete cards[cardId];
-			setCards({ ...cards });
-		};
+		// const handleDeleteBtn = (cardId) => {
+		// 	delete cards[cardId];
+		// 	setCards({ ...cards });
+		// };
 
 		return (
 			<>
-				<button className={styles.add} onClick={handleAddBtn}>
+				<button className={styles.add} FileInput={FileInput} onClick={addCard}>
 					+
 				</button>
 				<ul className={styles.list}>
-					{Object.keys(cards).map((id) => (
+					{Object.keys(cards).map((key) => (
 						<Maker
-							key={cards[id].id}
-							card={cards[id]}
-							updateCard={updateCard}
+							key={key}
 							FileInput={FileInput}
-							cardRepository={cardRepository}
-							userData={userData}
-							onDelete={handleDeleteBtn}
+							card={cards[key]}
+							updateCard={updateCard}
+							deleteCard={deleteCard}
 						/>
 					))}
 				</ul>

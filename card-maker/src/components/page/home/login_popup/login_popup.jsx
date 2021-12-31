@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import { useHistory } from "react-router";
 import styles from "./login_popup.module.css";
 import Header from "../header/header";
@@ -7,14 +7,12 @@ import Footer from "../footer/footer";
 const LoginPopUp = memo(({ authService }) => {
 	const history = useHistory();
 
-	const goToDesign = (user) => {
+	const goToDesign = (userId, userName) => {
 		history.push({
 			pathname: "/design",
 			state: {
-				id: user.uid,
-				name: user.displayName,
-				email: user.email,
-				photo: user.photoURL || "/images/profile_placeholder.png",
+				id: userId,
+				name: userName,
 			},
 		});
 	};
@@ -23,8 +21,16 @@ const LoginPopUp = memo(({ authService }) => {
 		const providerName = event.currentTarget.textContent;
 		authService //
 			.logIn(providerName)
-			.then(({ user }) => goToDesign(user));
+			.then(({ user }) => {
+				goToDesign(user.uid, user.displayName);
+			});
 	};
+
+	useEffect(async () => {
+		await authService.onAuthChange((user) => {
+			user && goToDesign(user.uid, user.displayName);
+		});
+	});
 
 	return (
 		<div className={styles.LoginPopUp}>

@@ -12,41 +12,27 @@ class CardRepository {
 	constructor() {
 		this.database = getDatabase();
 	}
-	signUpUser(userId, name, email) {
+	syncCards(userId, name, onUpdate) {
+		// console.log(userId);
 		const userRef = ref(this.database, `users/${userId}`);
 		onValue(userRef, (snapshot) => {
 			const data = snapshot.val();
-			return data.username
-				? console.log("Yes.")
-				: set(userRef, {
-						username: name,
-						email: email,
-				  });
+
+			data && onUpdate(data);
+			return () => {
+				console.log("end");
+			};
 		});
 	}
-	readUserDate(userId) {
-		const userRef = ref(this.database, `users/${userId}`);
-		onValue(userRef, (snapshot) => {
-			const data = snapshot.val();
-			return data;
-		});
+
+	saveCard(userId, card) {
+		const userRef = ref(this.database, `users/${userId}/cards/${card.id}`);
+		set(userRef, card);
 	}
-	writeCardsData(userId, cards) {
-		const cardsListRef = ref(this.database, `users/${userId}/cards/`);
-		update(cardsListRef, cards);
-	}
-	getAllCardsData(userId, callback) {
-		const cardsRef = ref(this.database, `users/${userId}/cards`);
-		onValue(cardsRef, (snapshot) => {
-			const cards = snapshot.val();
-			callback(cards);
-		});
-		return () => off(cardsRef);
-	}
-	deleteCard(userId, cardId) {
-		const cardRef = ref(this.database, `users/${userId}/cards/${cardId}`);
-		set(cardRef, {});
-		remove(cardRef);
+
+	removeCard(userId, card) {
+		const userRef = ref(this.database, `users/${userId}/cards/${card.id}`);
+		remove(userRef);
 	}
 }
 export default CardRepository;
