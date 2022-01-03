@@ -11,7 +11,7 @@ const Preview = memo(({ card }) => {
 		card;
 	const [isHiddenActive, setIsHiddenActive] = useState(false);
 	const [hideorShowMessage, setHideorShowMessage] = useState(HIDE_MESSAGE);
-	console.log(card);
+
 	useEffect(() => {
 		setIsHiddenActive(false);
 	}, [fileURL]);
@@ -32,16 +32,18 @@ const Preview = memo(({ card }) => {
 	return (
 		<div className={styles.container}>
 			<section className={styles.card}>
-				{isHiddenActive ? (
-					<></>
-				) : (
-					<img
+				{fileURL ? (
+					<div
 						className={
-							isHiddenActive ? (styles.img, styles.hidden) : styles.img
+							isHiddenActive
+								? (styles.imgContainer, styles.hidden)
+								: styles.imgContainer
 						}
-						src={fileURL || DEFALUT_IMAGE}
-						alt="profile"
-					></img>
+					>
+						<img className={styles.img} src={fileURL} alt="profile"></img>
+					</div>
+				) : (
+					<></>
 				)}
 				<div className={styles.detail}>
 					<div className={styles.top}>
@@ -55,18 +57,24 @@ const Preview = memo(({ card }) => {
 						</div>
 					</div>
 					<div className={styles.bottom}>
-						<span className={styles.address}>
-							<FontAwesomeIcon icon="map-marker-alt" />
-							{Address && `  ${Address}`}
-						</span>
-						<span className={styles.number}>
-							<FontAwesomeIcon icon="phone-alt" />
-							{Number && `  ${Number}`}
-						</span>
-						<span className={styles.email}>
-							<FontAwesomeIcon icon="envelope" />
-							{Email && `  ${Email}`}
-						</span>
+						{Address && (
+							<span className={styles.address}>
+								<FontAwesomeIcon icon="map-marker-alt" />
+								{`  ${Address}`}
+							</span>
+						)}
+						{Number && (
+							<span className={styles.number}>
+								<FontAwesomeIcon icon="phone-alt" />
+								{`${Number}`}
+							</span>
+						)}
+						{Email && (
+							<span className={styles.email}>
+								<FontAwesomeIcon icon="envelope" />
+								{`  ${Email}`}
+							</span>
+						)}
 					</div>
 				</div>
 			</section>

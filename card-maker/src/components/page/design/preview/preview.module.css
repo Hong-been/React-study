@@ -20,8 +20,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	margin: 0 1.5rem;
-	height: 70%;
+	margin: 0.2rem 1.5rem;
 	color: makerBlack;
 }
 .top {
@@ -52,11 +51,15 @@
 	font-size: 0.7rem;
 }
 
-.img {
+.imgContainer {
+	display: inline-block;
 	position: relative;
 	top: 20px;
 	left: 20px;
-	margin-right: 1.5rem;
+}
+
+.img {
+	position: relative;
 	width: 100px;
 	height: 30px;
 }

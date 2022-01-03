@@ -53,10 +53,8 @@ const DesignPage = memo(({ FileInput, authService, cardRepository }) => {
 		event.preventDefault();
 		const newCardId = Date.now();
 		const newCard = {
-			[newCardId]: {
-				id: newCardId,
-				fileURL: null,
-			},
+			id: newCardId,
+			fileURL: null,
 		};
 
 		updateCard(newCard);

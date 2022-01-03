@@ -26,8 +26,8 @@ const LoginPopUp = memo(({ authService }) => {
 			});
 	};
 
-	useEffect(async () => {
-		await authService.onAuthChange((user) => {
+	useEffect(() => {
+		authService.onAuthChange((user) => {
 			user && goToDesign(user.uid, user.displayName);
 		});
 	});
