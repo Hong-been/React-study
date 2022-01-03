@@ -1,5 +1,5 @@
-@value mediaQueryTablet from '../../../../common/size.css';
-@value makerWhite,makerViolet from '../../../../common/colors.css';
+@value mediaQueryTablet,mediaQueryMobile from '../../../../common/size.css';
+@value makerWhite,makerMain,makerDarkMain from '../../../../common/colors.css';
 
 .maker {
 	position: relative;
@@ -9,7 +9,7 @@
 	margin: 0.5rem;
 	padding: 1rem 0.5rem;
 	border-radius: 5px;
-	border: 2px solid makerViolet;
+	border: 2px solid makerDarkMain;
 }
 .delete {
 	position: absolute;
@@ -22,16 +22,15 @@
 	height: 30px;
 	line-height: 30px;
 	text-align: center;
-	background-color: makerViolet;
+	background-color: makerDarkMain;
 }
 .deleteIcon {
 	width: 22px;
 	color: makerWhite;
 }
 
-@media screen and (max-width: mediaQueryTablet) {
+@media screen and (max-width: mediaQueryMobile) {
 	.maker {
-		display: flex;
 		flex-direction: column;
 	}
 }

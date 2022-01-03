@@ -1,10 +1,11 @@
-@value makerBlack,makerWhite,makerViolet from "/src/common/colors.css";
+@value makerBlack,makerWhite,makerMain,makerDarkMain from "/src/common/colors.css";
+@value mediaQueryMobile,mediaQueryTablet from "/src/common/size.css";
 
 .hidden {
 	visibility: hidden;
 }
 .container {
-	width: 100%;
+	width: 90%;
 	height: max-content;
 }
 .card {
@@ -29,8 +30,7 @@
 	align-items: flex-end;
 }
 .companyInfo {
-	border-top: 1px solid rgb(145, 145, 145);
-	margin-bottom: 1em;
+	margin-bottom: 1.5em;
 }
 
 .name {
@@ -38,13 +38,13 @@
 	font-weight: 400;
 	padding-bottom: 0.2em;
 }
+.role,
 .position,
 .company {
-	font-size: 0.8rem;
+	font-size: 0.7rem;
 	margin-right: 0.5em;
 }
 
-.role,
 .number,
 .email,
 .address {
@@ -59,7 +59,6 @@
 }
 
 .img {
-	position: relative;
 	width: 100px;
 	height: 30px;
 }
@@ -71,7 +70,7 @@
 	padding: 0.8em 1em;
 	border-radius: 15px;
 	color: makerWhite;
-	background-color: makerViolet;
+	background-color: makerDarkMain;
 	align-self: flex-end;
 }
 .bottom {
@@ -79,4 +78,60 @@
 	width: max-content;
 	display: flex;
 	flex-direction: column;
+}
+.icon {
+	margin-right: 8px;
+	font-size: 0.7rem;
+}
+@media screen and (max-width: mediaQueryTablet) {
+	.button {
+		font-size: 0.8rem;
+		margin-bottom: 1em;
+	}
+}
+
+@media screen and (max-width: mediaQueryMobile) {
+	.container {
+		width: 100%;
+	}
+	.card {
+		width: 250px;
+		height: 120px;
+		margin-top: 3em;
+	}
+
+	.imgContainer {
+		top: 14px;
+		left: 14px;
+	}
+	.img {
+		position: relative;
+		width: 65px;
+		height: 22px;
+	}
+	.name {
+		font-size: 0.9rem;
+		font-weight: 400;
+		padding-bottom: 0.2em;
+	}
+	.role,
+	.position,
+	.company {
+		font-size: 0.3rem;
+		margin-right: 0.5em;
+	}
+
+	.number,
+	.email,
+	.address {
+		font-size: 0.2rem;
+	}
+
+	.icon {
+		font-size: 0.5rem;
+	}
+
+	.companyInfo {
+		margin-bottom: 1em;
+	}
 }

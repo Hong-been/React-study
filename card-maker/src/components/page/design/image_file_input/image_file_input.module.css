@@ -1,15 +1,38 @@
-@value makerBlack,makerWhite,makerViolet from "/src/common/colors.css";
+@value makerBlack,makerWhite,makerMain,makerDarkMain from "/src/common/colors.css";
+@value mediaQueryPC,mediaQueryTablet,mediaQueryMobile from "/src/common/size.css";
 
 .input {
 	display: none;
 }
 .button {
-	display: block;
-	margin: auto;
 	font-size: 1rem;
 	padding: 0.8em 1em;
 	border-radius: 15px;
 	color: makerWhite;
 	margin-right: 2%;
-	background-color: makerViolet;
+	background-color: makerDarkMain;
+}
+
+.loading {
+	width: 1.3em;
+	height: 1.3em;
+	border-radius: 50%;
+	border: 4px solid makerDarkMain;
+	border-top: 4px solid makerMain;
+	animation: spin 800ms linear infinite;
+}
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@media screen and (max-width: mediaQueryTablet) {
+	.button {
+		font-size: 0.8rem;
+		margin-bottom: 1em;
+	}
 }

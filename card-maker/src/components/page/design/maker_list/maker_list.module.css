@@ -1,5 +1,5 @@
 @value mediaQueryPC,mediaQueryTablet from '../../../../common/size.css';
-@value makerViolet from '../../../../common/colors.css';
+@value makerMain from '../../../../common/colors.css';
 
 .list {
 	margin: 0.5rem auto 0 auto;
@@ -13,12 +13,13 @@
 	color: white;
 	font-size: 2rem;
 	font-weight: 700;
-	background-color: makerViolet;
+	background-color: makerMain;
 	border-radius: 50%;
 	width: 2.5rem;
 	height: 2.5rem;
 	line-height: 2.5rem;
 	text-align: center;
+	box-shadow: 4px 4px 6px 2px rgba(0, 0, 0, 0.61);
 }
 
 @media screen and (min-width: mediaQueryTablet) {

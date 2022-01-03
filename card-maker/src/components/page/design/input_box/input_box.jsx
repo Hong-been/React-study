@@ -2,7 +2,8 @@ import React, { memo } from "react";
 import styles from "./input_box.module.css";
 
 const InputBox = memo(({ FileInput, card, updateCard }) => {
-	const { Name, Company, Role, Position, Number, Email, Address } = card;
+	const { Name, Company, Role, Position, Number, Email, Address, fileName } =
+		card;
 
 	const onFileChange = (file) => {
 		updateCard({ ...card, fileName: file.name, fileURL: file.url });
@@ -79,7 +80,7 @@ const InputBox = memo(({ FileInput, card, updateCard }) => {
 				></input>
 			</form>
 			<div className={styles.fileInput}>
-				<FileInput onFileChange={onFileChange} />
+				<FileInput name={fileName} onFileChange={onFileChange} />
 			</div>
 		</section>
 	);

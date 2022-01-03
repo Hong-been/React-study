@@ -1,11 +1,11 @@
-@value mediaQueryPC,mediaQueryTablet from '../../../../common/size.css';
+@value mediaQueryPC,mediaQueryTablet,mediaQueryMobile from '../../../../common/size.css';
 
 .container {
 	flex: 0 1 auto;
 	margin: 0.2em;
 }
 .information {
-	margin: 0 0.1em;
+	width: 90%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -21,6 +21,16 @@
 	margin: 0.8em 0;
 	font-size: 1rem;
 }
+.input:nth-child(1),
+.input:nth-child(3),
+.input:nth-child(5) {
+	margin: 0.8em;
+}
+.input:last-child {
+	flex-basis: 100%;
+	margin-left: 0.8em;
+}
+
 .fileInput {
 	margin: auto;
 }
@@ -28,5 +38,21 @@
 @media screen and (max-width: mediaQueryTablet) {
 	.container {
 		margin-top: 2em;
+	}
+	.input {
+		height: 1.5rem;
+		flex-basis: 40%;
+		font-size: 0.8rem;
+	}
+}
+@media screen and (max-width: mediaQueryMobile) {
+	.container {
+		margin: 0.1em;
+	}
+	.input {
+		height: 1.5rem;
+		flex-basis: 90%;
+		font-size: 0.8rem;
+		margin: 0.8em;
 	}
 }

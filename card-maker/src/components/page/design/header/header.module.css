@@ -1,5 +1,5 @@
-@value makerBlack,makerWhite,makerSkyBlue,makerViolet from "/src/common/colors.css";
-@value mediaQueryTablet from '../../../../common/size.css';
+@value makerBlack,makerWhite,makerDarkMain,makerMain from "/src/common/colors.css";
+@value mediaQueryTablet,mediaQueryMobile from '../../../../common/size.css';
 
 .header {
 	height: 80px;
@@ -7,7 +7,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: makerViolet;
+	background-color: makerMain;
 }
 .title {
 	color: makerWhite;
@@ -20,23 +20,46 @@
 }
 .name {
 	color: makerWhite;
+	font-size: 1.2rem;
+	white-space: pre-wrap;
 }
-.logIn,
-.logout {
+.logInOut {
 	font-size: 0.8rem;
-	color: makerViolet;
+	color: makerMain;
 	background-color: makerWhite;
 	padding: 0.5em;
 	margin-left: 0.3em;
 	border-radius: 5px;
 }
 
-@media screen and (max-width: mediaQueryTablet) {
+@media screen and (max-width: mediaQueryMobile) {
+	.header {
+		padding: 0 1rem;
+	}
+	.title {
+		font-size: 1.6rem;
+	}
+	.name {
+		font-size: 0.7rem;
+	}
+	.logInOut {
+		font-size: 0.7rem;
+		margin-left: 0.5em;
+	}
+}
+
+@media screen and (max-width: mediaQueryTablet) and (min-width: mediaQueryMobile) {
 	.title {
 		font-size: 1.6rem;
 		font-weight: 400;
 	}
 	.header {
 		padding: 0 1rem;
+	}
+	.title {
+		font-size: 2rem;
+	}
+	.name {
+		font-size: 1rem;
 	}
 }

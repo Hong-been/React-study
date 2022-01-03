@@ -6,7 +6,7 @@ const MakerList = memo(
 	({ FileInput, cards, addCard, updateCard, deleteCard }) => {
 		return (
 			<>
-				<button className={styles.add} FileInput={FileInput} onClick={addCard}>
+				<button className={styles.add} onClick={addCard}>
 					+
 				</button>
 				{cards && (

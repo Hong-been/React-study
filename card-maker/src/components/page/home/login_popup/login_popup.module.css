@@ -1,12 +1,11 @@
-@value makerBlack from "/src/common/colors.css";
-@value makerWhite from "/src/common/colors.css";
+@value makerBlack,makerWhite,makerMain,makerDarkMain from "/src/common/colors.css";
 
 .LoginPopUp {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	background-color: antiquewhite;
+	background-color: makerDarkMain;
 	border-radius: 10px;
 	width: 70%;
 	height: 60%;
@@ -21,7 +20,7 @@
 	padding: 1rem;
 	color: makerWhite;
 	border-radius: 10px 10px 0 0;
-	background-color: rgb(43, 43, 131);
+	background-color: makerMain;
 }
 .main {
 	font-size: 1.5rem;
@@ -29,6 +28,8 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	color: makerWhite;
+	background-color: makerDarkMain;
 }
 .loginBtn {
 	font-size: 1.1rem;
@@ -37,8 +38,8 @@
 	border-radius: 0.5rem;
 	width: fit-content;
 	margin: 0.2em 0;
-	color: makerWhite;
-	background-color: rgb(43, 43, 131);
+	color: makerDarkMain;
+	background-color: makerWhite;
 }
 .footer {
 	color: makerWhite;
@@ -46,5 +47,5 @@
 	font-weight: 600;
 	padding: 1em 0;
 	border-radius: 0 0 10px 10px;
-	background-color: rgb(43, 43, 131);
+	background-color: makerMain;
 }

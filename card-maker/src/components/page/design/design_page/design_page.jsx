@@ -16,19 +16,22 @@ const DesignPage = memo(({ FileInput, authService, cardRepository }) => {
 		authService.logOut();
 	}, [authService]);
 
-	useEffect(async () => {
+	useEffect(() => {
 		if (!userId) return;
 
-		const stopSync = await cardRepository.syncCards(
-			userId,
-			userName,
-			(cards) => {
-				setCards(cards);
-			}
-		);
+		async function fetchData() {
+			const stopSync = await cardRepository.syncCards(
+				userId,
+				userName,
+				(cards) => {
+					setCards(cards);
+				}
+			);
+			return stopSync;
+		}
 
-		return () => stopSync();
-	}, [userId, cardRepository]);
+		return fetchData();
+	}, [userId, userName, cardRepository]);
 
 	useEffect(() => {
 		authService.onAuthChange((user) => {
