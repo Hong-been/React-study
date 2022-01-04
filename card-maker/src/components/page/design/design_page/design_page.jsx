@@ -42,14 +42,19 @@ const DesignPage = memo(({ FileInput, authService, cardRepository }) => {
 		});
 	}, [authService, userId, history]);
 
-	const updateCard = (card) => {
+	const updateCard = async (card) => {
 		setCards((cards) => {
 			const updated = { ...cards };
 			updated[card.id] = card;
 			return updated;
 		});
 
-		cardRepository.saveCard(userId, card);
+		await cardRepository.saveCard(userId, card);
+
+		window.scrollTo({
+			top: document.body.scrollHeight,
+			behavior: "smooth",
+		});
 	};
 
 	const createCard = (event) => {
@@ -71,6 +76,13 @@ const DesignPage = memo(({ FileInput, authService, cardRepository }) => {
 		});
 		cardRepository.removeCard(userId, card);
 	};
+	const scrollUp = (event) => {
+		event.preventDefault();
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		});
+	};
 
 	return (
 		<>
@@ -85,6 +97,7 @@ const DesignPage = memo(({ FileInput, authService, cardRepository }) => {
 				addCard={createCard}
 				updateCard={updateCard}
 				deleteCard={deleteCard}
+				scrollUp={scrollUp}
 			/>
 		</>
 	);

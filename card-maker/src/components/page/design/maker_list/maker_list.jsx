@@ -1,13 +1,17 @@
 import React, { memo } from "react";
 import styles from "./maker_list.module.css";
 import Maker from "../maker/maker";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const MakerList = memo(
-	({ FileInput, cards, addCard, updateCard, deleteCard }) => {
+	({ FileInput, cards, addCard, updateCard, deleteCard, scrollUp }) => {
 		return (
 			<>
+				<button className={styles.up} onClick={scrollUp}>
+					<FontAwesomeIcon className={styles.icon} icon="chevron-up" />
+				</button>
 				<button className={styles.add} onClick={addCard}>
-					+
+					<FontAwesomeIcon className={styles.icon} icon="plus" />
 				</button>
 				{cards && (
 					<ul className={styles.list}>

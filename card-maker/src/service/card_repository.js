@@ -20,6 +20,8 @@ class CardRepository {
 	saveCard(userId, card) {
 		const userRef = ref(this.database, `users/${userId}/cards/${card.id}`);
 		set(userRef, card);
+
+		return true;
 	}
 
 	removeCard(userId, card) {

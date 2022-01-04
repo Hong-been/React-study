@@ -40,6 +40,10 @@
 	margin: 0.2em 0;
 	color: makerDarkMain;
 	background-color: makerWhite;
+	transition: all ease 200ms;
+}
+.loginBtn:hover {
+	transform: scale(1.1);
 }
 .footer {
 	color: makerWhite;
