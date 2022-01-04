@@ -32,7 +32,7 @@ const Preview = memo(({ card }) => {
 		<div className={styles.container}>
 			<section className={styles.card}>
 				<div className={styles.imgContainer}>
-					{isHiddenActive && fileURL ? (
+					{!isHiddenActive && fileURL ? (
 						<img className={styles.img} src={fileURL} alt="profile"></img>
 					) : (
 						<div className={styles.img} alt="profile"></div>

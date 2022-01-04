@@ -9,19 +9,19 @@
 	height: max-content;
 }
 .card {
+	display: flex;
+	justify-content: space-between;
 	width: 380px;
 	height: 180px;
 	background-color: rgba(184, 184, 184, 0.2);
 	border-radius: 3px;
 	margin-bottom: 0.5em;
-	margin-top: 5em;
 }
 .detail {
-	flex: 1;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	margin: 0.2rem 1.5rem;
+	margin: 1.5rem 1rem;
 	color: makerBlack;
 }
 .top {
@@ -52,15 +52,15 @@
 }
 
 .imgContainer {
-	display: inline-block;
 	position: relative;
 	top: 20px;
 	left: 20px;
+	height: fit-content;
 }
 
 .img {
 	width: 100px;
-	height: 30px;
+	/* height: 30px; */
 }
 .button {
 	width: max-content;

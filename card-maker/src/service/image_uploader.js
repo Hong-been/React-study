@@ -3,11 +3,11 @@ class ImageUploader {
 		if (!file) {
 			return;
 		}
-		const url = "https://api.cloudinary.com/v1_1/demo/image/upload";
+		const url = "https://api.cloudinary.com/v1_1/hongbeen/image/upload";
 		const formData = new FormData();
 
 		formData.append("file", file);
-		formData.append("upload_preset", "docs_upload_example_us_preset");
+		formData.append("upload_preset", "vvm7vf7f");
 
 		const result = await fetch(url, {
 			method: "POST",
