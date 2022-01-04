@@ -42,19 +42,17 @@ const DesignPage = memo(({ FileInput, authService, cardRepository }) => {
 		});
 	}, [authService, userId, history]);
 
-	const updateCard = async (card) => {
+	const updateCard = (card) => {
 		setCards((cards) => {
 			const updated = { ...cards };
 			updated[card.id] = card;
 			return updated;
 		});
 
-		await cardRepository.saveCard(userId, card);
-
-		scrollTo(document.body.scrollHeight);
+		cardRepository.saveCard(userId, card);
 	};
 
-	const createCard = (event) => {
+	const createCard = async (event) => {
 		event.preventDefault();
 		const newCardId = Date.now();
 		const newCard = {
@@ -62,7 +60,9 @@ const DesignPage = memo(({ FileInput, authService, cardRepository }) => {
 			fileURL: null,
 		};
 
-		updateCard(newCard);
+		await updateCard(newCard);
+
+		scrollTo(document.body.scrollHeight);
 	};
 
 	const scrollTo = useCallback((top = 0) => {

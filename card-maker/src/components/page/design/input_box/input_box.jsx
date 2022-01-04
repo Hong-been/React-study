@@ -90,7 +90,7 @@ const InputBox = memo(({ FileInput, card, updateCard }) => {
 					value={Address}
 				></input>
 			</form>
-			<span className={styles.colors}>
+			<span className={styles.deco}>
 				<div className={styles.colorContainer}>
 					<input
 						type="color"
@@ -115,9 +115,9 @@ const InputBox = memo(({ FileInput, card, updateCard }) => {
 						Font
 					</label>
 				</div>
-			</span>
-			<span className={styles.fileInput}>
-				<FileInput name={fileName} onFileChange={onFileChange} />
+				<span className={styles.fileInput}>
+					<FileInput name={fileName} onFileChange={onFileChange} />
+				</span>
 			</span>
 		</section>
 	);

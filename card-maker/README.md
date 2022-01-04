@@ -1,12 +1,12 @@
 # Business Card Maker
+
 with React, Firebase Auth and Database.
 
 - 배포 주소 : [HONG CARD](https://hongs-card-maker.netlify.app)
 - 명함만들기 웹서비스를 제작해보았습니다.
 - "드림코딩" 강의를 수강하며 제작하였지만, 강의를 보기 전 능동적으로 스스로 제작함에 집중하였습니다.
 - 혼자 고민해보고 어설프게라도 만들어보고 부딪히며 만들어나갔습니다.
-</br>
-
+  </br>
 
 ### 구현 기능과 설명
 
@@ -15,7 +15,7 @@ with React, Firebase Auth and Database.
 - 파이어베이스의 Authentication를 사용하여 구글, 깃허브 로그인이 가능합니다.
 - 로그인한 후 서비스를 이용할 수 있습니다.
 - 로그인에 성공하면 디자인화면으로 이동하고, 유저의 데이터베이스를 보여줍니다.
-<img width="800" alt="스크린샷 2022-01-04 오후 7 54 42" src="https://user-images.githubusercontent.com/65804460/148048691-b02b2d65-295e-4e90-b609-cf1be5227ae3.png">
+  <img width="800" alt="스크린샷 2022-01-04 오후 7 54 42" src="https://user-images.githubusercontent.com/65804460/148048691-b02b2d65-295e-4e90-b609-cf1be5227ae3.png">
 
 </br>
 </br>
@@ -27,7 +27,7 @@ with React, Firebase Auth and Database.
 - <img width="800" alt="스크린샷 2022-01-04 오후 7 55 29" src="https://user-images.githubusercontent.com/65804460/148048795-b024d63a-2947-42b5-a173-d57929af822b.png">
 - 명함 프리뷰 컴포넌트, 입력 컴포넌트로 이루어진 하나의 폼 컨포넌트들로 구성하였습니다.
 - 명함 프리뷰 부분의 디자인적 요소가 부족하여, 보완이 필요해보입니다.....^^;
-- 그리고 완성 후 배경화면 등으로 이용하기위해 이미지 다운로드 기능을 추가할 예정입니다. 
+- 그리고 완성 후 배경화면 등으로 이용하기위해 이미지 다운로드 기능을 추가할 예정입니다.
 - 이를 통해 취뽀, 창업, 공부 등 의욕을 고취시킬 수 있습니다.
 
 </br>
@@ -48,11 +48,10 @@ with React, Firebase Auth and Database.
 </br>
 
 ### 배운 점
+
 - 실사용자가 원하는 서비스르 만드는 것은 상당히 까다롭다.
 - 하지만, 의미있는 개발을 위해 실사용자가 원하는 웹서비스를 만들고싶다.
 - 리액트라는 라이브러리를 활용하여 빠르게 생산성있는 앱을 만들 수 있지만, 바닐라자바스크립트에 대한 심도있는 공부도 병행해야 할 필요가 있다.
 
-
 </br>
 </br>
-
