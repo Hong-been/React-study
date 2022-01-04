@@ -62,7 +62,7 @@ const Preview = memo(({ card }) => {
 						{Number && (
 							<span className={styles.number}>
 								<FontAwesomeIcon className={styles.icon} icon="phone-alt" />
-								{Number}
+								{`${Number}`}
 							</span>
 						)}
 						{Email && (

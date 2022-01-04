@@ -12,6 +12,7 @@
 }
 
 .input {
+	font-family: "Lato";
 	height: 2rem;
 	flex-basis: 45%;
 	border: none;
@@ -54,5 +55,14 @@
 		flex-basis: 90%;
 		font-size: 0.8rem;
 		margin: 0.8em;
+	}
+	.input:nth-child(1),
+	.input:nth-child(3),
+	.input:nth-child(5) {
+		margin: 0.8em;
+	}
+	.input:last-child {
+		flex-basis: 90%;
+		margin-left: 0.8em;
 	}
 }
