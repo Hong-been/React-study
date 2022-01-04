@@ -7,6 +7,9 @@
 	/* font-family: "Roboto", sans-serif; */
 	font-family: "Lato";
 }
+a {
+	text-decoration: none;
+}
 button {
 	background-color: transparent;
 	border-style: none;

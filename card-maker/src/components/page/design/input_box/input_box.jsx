@@ -2,8 +2,18 @@ import React, { memo } from "react";
 import styles from "./input_box.module.css";
 
 const InputBox = memo(({ FileInput, card, updateCard }) => {
-	const { Name, Company, Role, Position, Number, Email, Address, fileName } =
-		card;
+	const {
+		Name,
+		Company,
+		Role,
+		Position,
+		Number,
+		Email,
+		Address,
+		Color,
+		fontColor,
+		fileName,
+	} = card;
 
 	const onFileChange = (file) => {
 		updateCard({ ...card, fileName: file.name, fileURL: file.url });
@@ -70,6 +80,7 @@ const InputBox = memo(({ FileInput, card, updateCard }) => {
 					onChange={onChange}
 					value={Email}
 				></input>
+
 				<input
 					type="text"
 					className={(styles.address, styles.input)}
@@ -79,9 +90,35 @@ const InputBox = memo(({ FileInput, card, updateCard }) => {
 					value={Address}
 				></input>
 			</form>
-			<div className={styles.fileInput}>
+			<span className={styles.colors}>
+				<div className={styles.colorContainer}>
+					<input
+						type="color"
+						className={styles.colorPicker}
+						name="Color"
+						onChange={onChange}
+						value={Color}
+					></input>
+					<label className={styles.label} for="Color">
+						Background
+					</label>
+				</div>
+				<div className={styles.colorContainer}>
+					<input
+						type="color"
+						className={styles.colorPicker}
+						name="fontColor"
+						onChange={onChange}
+						value={fontColor}
+					></input>
+					<label className={styles.label} for="fontColor">
+						Font
+					</label>
+				</div>
+			</span>
+			<span className={styles.fileInput}>
 				<FileInput name={fileName} onFileChange={onFileChange} />
-			</div>
+			</span>
 		</section>
 	);
 });

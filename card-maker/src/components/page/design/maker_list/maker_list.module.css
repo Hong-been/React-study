@@ -4,10 +4,18 @@
 .list {
 	margin: 0.5rem auto 0 auto;
 }
+.buttons {
+	z-index: 10;
+	width: 100%;
+	display: flex;
+	position: fixed;
+	top: 95%;
+	justify-content: space-between;
+	padding: 0 1rem;
+	transform: translateY(-50%);
+}
 .up,
 .add {
-	z-index: 10;
-	position: fixed;
 	color: white;
 	background-color: makerMain;
 	border-radius: 50%;
@@ -15,21 +23,12 @@
 	height: 2.5rem;
 	line-height: 2.5rem;
 	text-align: center;
-	box-shadow: 4px 4px 6px 2px rgba(0, 0, 0, 0.61);
-	transition: all ease 200ms;
+	box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.61);
+	transition: transform ease 200ms;
 }
 .up:hover,
 .add:hover {
 	transform: scale(1.1);
-}
-.add {
-	top: 92%;
-	left: 3%;
-}
-.up {
-	top: 92%;
-	left: 85%;
-	margin-bottom: 1rem;
 }
 .icon {
 	width: 1rem;

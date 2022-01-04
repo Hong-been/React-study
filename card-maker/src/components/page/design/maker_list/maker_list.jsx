@@ -7,12 +7,14 @@ const MakerList = memo(
 	({ FileInput, cards, addCard, updateCard, deleteCard, scrollUp }) => {
 		return (
 			<>
-				<button className={styles.up} onClick={scrollUp}>
-					<FontAwesomeIcon className={styles.icon} icon="chevron-up" />
-				</button>
-				<button className={styles.add} onClick={addCard}>
-					<FontAwesomeIcon className={styles.icon} icon="plus" />
-				</button>
+				<div className={styles.buttons}>
+					<button className={styles.add} onClick={addCard}>
+						<FontAwesomeIcon className={styles.icon} icon="plus" />
+					</button>
+					<button className={styles.up} onClick={scrollUp}>
+						<FontAwesomeIcon className={styles.icon} icon="chevron-up" />
+					</button>
+				</div>
 				{cards && (
 					<ul className={styles.list}>
 						{Object.keys(cards).map((key) => (

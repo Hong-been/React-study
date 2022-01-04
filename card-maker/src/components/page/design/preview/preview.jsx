@@ -6,8 +6,18 @@ const HIDE_MESSAGE = "Hide Image";
 const SHOW_MESSAGE = "Show Image";
 
 const Preview = memo(({ card }) => {
-	const { Name, Company, Role, Address, Position, Number, Email, fileURL } =
-		card;
+	const {
+		Name,
+		Company,
+		Role,
+		Address,
+		Position,
+		Number,
+		Email,
+		Color,
+		fontColor,
+		fileURL,
+	} = card;
 	const [isHiddenActive, setIsHiddenActive] = useState(false);
 	const [hideorShowMessage, setHideorShowMessage] = useState(HIDE_MESSAGE);
 
@@ -30,7 +40,12 @@ const Preview = memo(({ card }) => {
 
 	return (
 		<div className={styles.container}>
-			<section className={styles.card}>
+			<a
+				href="business-card.png"
+				download="business-card"
+				className={styles.card}
+				style={{ backgroundColor: Color }}
+			>
 				<div className={styles.imgContainer}>
 					{!isHiddenActive && fileURL ? (
 						<img className={styles.img} src={fileURL} alt="profile"></img>
@@ -38,7 +53,7 @@ const Preview = memo(({ card }) => {
 						<div className={styles.img} alt="profile"></div>
 					)}
 				</div>
-				<div className={styles.detail}>
+				<div className={styles.detail} style={{ color: fontColor }}>
 					<div className={styles.top}>
 						<div className={styles.person}>
 							<span className={styles.position}>{Position}</span>
@@ -73,7 +88,7 @@ const Preview = memo(({ card }) => {
 						)}
 					</div>
 				</div>
-			</section>
+			</a>
 			<button className={styles.button} onClick={onHideButtonClick}>
 				{hideorShowMessage}
 			</button>

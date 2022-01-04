@@ -51,10 +51,7 @@ const DesignPage = memo(({ FileInput, authService, cardRepository }) => {
 
 		await cardRepository.saveCard(userId, card);
 
-		window.scrollTo({
-			top: document.body.scrollHeight,
-			behavior: "smooth",
-		});
+		scrollTo(document.body.scrollHeight);
 	};
 
 	const createCard = (event) => {
@@ -68,20 +65,25 @@ const DesignPage = memo(({ FileInput, authService, cardRepository }) => {
 		updateCard(newCard);
 	};
 
+	const scrollTo = useCallback((top = 0) => {
+		window.scrollTo({
+			top,
+			behavior: "smooth",
+		});
+	});
+
 	const deleteCard = (card) => {
+		if (
+			!window.confirm(`${card.Name ? card.Name : ""} 명함을 삭제하시겠습니까?`)
+		)
+			return;
+
 		setCards((cards) => {
 			const updated = { ...cards };
 			delete updated[card.id];
 			return updated;
 		});
 		cardRepository.removeCard(userId, card);
-	};
-	const scrollUp = (event) => {
-		event.preventDefault();
-		window.scrollTo({
-			top: 0,
-			behavior: "smooth",
-		});
 	};
 
 	return (
@@ -97,7 +99,7 @@ const DesignPage = memo(({ FileInput, authService, cardRepository }) => {
 				addCard={createCard}
 				updateCard={updateCard}
 				deleteCard={deleteCard}
-				scrollUp={scrollUp}
+				scrollUp={scrollTo}
 			/>
 		</>
 	);
