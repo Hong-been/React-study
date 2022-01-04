@@ -36,7 +36,7 @@ const LoginPopUp = memo(({ authService }) => {
 		<div className={styles.LoginPopUp}>
 			<Header />
 			<main className={styles.main}>
-				Log in for Free
+				Login with
 				<ul>
 					<li>
 						<button className={styles.loginBtn} onClick={onLoginClick}>
