@@ -24,6 +24,6 @@
 ## 3.Business Card Maker
 - 개발 목표: firebase를 활용하여 DB를 가진 웹 서비스 구현하기, 리액트 라우터와 컨포넌트를 사용하여 원하는 동작 
 - 개발 일자 : 21/10/2021 ~ 
-- 임시배포 URL : [임시배포 URL✨](https://617f7b126c02f5ea25bc1cb4--hongs-card-maker.netlify.app)
+- 임시배포 URL : [배포 URL✨](https://hongs-card-maker.netlify.app)
 - 수정사항
   - 이미지 업로드버튼 클릭 시, 바로 적용되도록 수정 필요
