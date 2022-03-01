@@ -40,9 +40,7 @@ const Preview = memo(({ card }) => {
 
 	return (
 		<div className={styles.container}>
-			<a
-				href="business-card.png"
-				download="business-card"
+			<div
 				className={styles.card}
 				style={{ backgroundColor: Color }}
 			>
@@ -88,7 +86,7 @@ const Preview = memo(({ card }) => {
 						)}
 					</div>
 				</div>
-			</a>
+			</div>
 			<button className={styles.button} onClick={onHideButtonClick}>
 				{hideorShowMessage}
 			</button>

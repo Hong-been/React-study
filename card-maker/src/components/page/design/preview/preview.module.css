@@ -90,7 +90,8 @@
 	width: 8px;
 	height: 8px;
 }
-@media screen and (max-width: mediaQueryTablet) {
+
+@media screen and (max-width: mediaQueryTablet) and (min-width: mediaQueryMobile) {
 	.button {
 		font-size: 0.8rem;
 		margin-bottom: 1em;
@@ -99,7 +100,7 @@
 
 @media screen and (max-width: mediaQueryMobile) {
 	.container {
-		max-width: 300px;
+		max-width:300px;
 	}
 	.card {
 		width: 100%;

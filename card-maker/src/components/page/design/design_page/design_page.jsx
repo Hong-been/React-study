@@ -70,11 +70,11 @@ const DesignPage = memo(({ FileInput, authService, cardRepository }) => {
 			top,
 			behavior: "smooth",
 		});
-	});
+	},[]);
 
 	const deleteCard = (card) => {
 		if (
-			!window.confirm(`${card.Name ? card.Name : ""} 명함을 삭제하시겠습니까?`)
+			!window.confirm(`${card.Name && card.Name} 명함을 삭제하시겠습니까?`)
 		)
 			return;
 

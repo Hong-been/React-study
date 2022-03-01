@@ -99,7 +99,7 @@ const InputBox = memo(({ FileInput, card, updateCard }) => {
 						onChange={onChange}
 						value={Color}
 					></input>
-					<label className={styles.label} for="Color">
+					<label className={styles.label} htmlFor="Color">
 						Background
 					</label>
 				</div>
@@ -111,7 +111,7 @@ const InputBox = memo(({ FileInput, card, updateCard }) => {
 						onChange={onChange}
 						value={fontColor}
 					></input>
-					<label className={styles.label} for="fontColor">
+					<label className={styles.label} htmlFor="fontColor">
 						Font
 					</label>
 				</div>
