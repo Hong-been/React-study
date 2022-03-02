@@ -14,8 +14,8 @@ const Preview = memo(({ card }) => {
 		Position,
 		Number,
 		Email,
-		Color,
-		fontColor,
+		Color="#000000",
+		fontColor="#000000",
 		fileURL,
 	} = card;
 	const [isHiddenActive, setIsHiddenActive] = useState(false);

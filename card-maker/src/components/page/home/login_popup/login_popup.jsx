@@ -23,7 +23,6 @@ const LoginPopUp = memo(({ authService }) => {
 		authService //
 			.logIn(providerName)
 			.then(({ user }) => {
-				console.log(user);
 				goToDesign(user.uid, user.displayName);
 			});
 	};

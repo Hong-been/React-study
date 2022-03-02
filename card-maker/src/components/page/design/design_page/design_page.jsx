@@ -2,6 +2,8 @@ import React, { memo, useEffect, useState, useCallback } from "react";
 import { useHistory } from "react-router";
 import Header from "../header/header";
 import MakerList from "../maker_list/maker_list";
+import styles from "./design_page.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const DesignPage = memo(({ FileInput, authService, cardRepository }) => {
 	const history = useHistory();
@@ -74,7 +76,7 @@ const DesignPage = memo(({ FileInput, authService, cardRepository }) => {
 
 	const deleteCard = (card) => {
 		if (
-			!window.confirm(`${card.Name && card.Name} 명함을 삭제하시겠습니까?`)
+			!window.confirm(`${card.Name ? card.Name :"새로운"} 명함을 삭제하시겠습니까?`)
 		)
 			return;
 
@@ -101,6 +103,12 @@ const DesignPage = memo(({ FileInput, authService, cardRepository }) => {
 				deleteCard={deleteCard}
 				scrollUp={scrollTo}
 			/>
+				<button className={styles.add} onClick={createCard}>
+						<FontAwesomeIcon className={styles.icon} icon="plus" />
+					</button>
+					<button className={styles.up} onClick={scrollTo}>
+						<FontAwesomeIcon className={styles.icon} icon="chevron-up" />
+					</button>
 		</>
 	);
 });

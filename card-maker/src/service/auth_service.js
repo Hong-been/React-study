@@ -26,12 +26,7 @@ class AuthService {
 	logOut() {
 		signOut(this.firebaseAuth);
 	}
-	isUserSignedIn() {
-		return !!this.firebaseAuth.currentUser;
-	}
-	getUserData() {
-		return this.firebaseAuth.currentUser;
-	}
+	
 	onAuthChange(onUserChanged) {
 		onAuthStateChanged(this.firebaseAuth, (user) => {
 			onUserChanged(user);
